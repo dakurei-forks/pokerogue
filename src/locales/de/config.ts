@@ -20,6 +20,7 @@ import { tutorial } from "./tutorial";
 import { weather } from "./weather";
 import { battleMessageUiHandler } from "./battle-message-ui-handler";
 import { berry } from "./berry";
+import { gameStatsUiHandler } from "./game-stats-ui-handler";
 import { voucher } from "./voucher";
 
 export const deConfig = {
@@ -47,5 +48,6 @@ export const deConfig = {
   weather: weather,
   battleMessageUiHandler: battleMessageUiHandler,
   berry: berry,
+  gameStatsUiHandler: gameStatsUiHandler,
   voucher: voucher,
 };
