@@ -110,7 +110,8 @@ export class LoginPhase extends Phase {
               () => {
                 this.scene.ui.playSelect();
                 loadData();
-              }, () => {
+              },
+              /* () => {
                 this.scene.playSound("menu_open");
                 this.scene.ui.setMode(Mode.REGISTRATION_FORM, {
                   buttonActions: [
@@ -130,7 +131,7 @@ export class LoginPhase extends Phase {
                     }
                   ]
                 });
-              }
+              } */
             ]
           });
         } else if (statusCode === 401) {
