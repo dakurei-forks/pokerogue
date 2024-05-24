@@ -289,7 +289,7 @@ export const localServerUrl = import.meta.env.VITE_SERVER_URL ?? `http://${windo
 
 // Set the server URL based on whether it's local or not
 export const serverUrl = isLocal ? localServerUrl : "";
-export const apiUrl = isLocal ? serverUrl : "https://api.pokerogue.net";
+export const apiUrl = isLocal ? serverUrl : "https://api.pokerogue.dakurei.ovh";
 // used to disable api calls when isLocal is true and a server is not found
 export let isLocalServerConnected = true;
 
@@ -527,5 +527,3 @@ export function reverseValueToKeySetting(input) {
   // Join the capitalized words with underscores and return the result
   return capitalizedWords.join("_");
 }
-
-
