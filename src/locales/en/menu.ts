@@ -13,7 +13,7 @@ export const menu: SimpleTranslationEntries = {
   "newGame": "New Game",
   "settings": "Settings",
   "selectGameMode": "Select a game mode.",
-  "logInOrCreateAccount": "Log in or create an account to start. No email required!",
+  "logInOrCreateAccount": "Log in to start.",
   "username": "Username",
   "password": "Password",
   "login": "Login",

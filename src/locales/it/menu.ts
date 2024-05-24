@@ -13,7 +13,7 @@ export const menu: SimpleTranslationEntries = {
   "settings": "Impostazioni",
   "dailyRun": "Run giornaliera (Beta)",
   "selectGameMode": "Seleziona una modalità di gioco.",
-  "logInOrCreateAccount": "Accedi o crea un nuovo account per iniziare. Non è richiesta un'email!",
+  "logInOrCreateAccount": "Accedi per iniziare.",
   "username": "Nome utente",
   "password": "Password",
   "login": "Accedi",
