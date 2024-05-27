@@ -40,3 +40,6 @@ coverage
 /typedoc
 
 /dependency-graph.svg
+
+# Self Instance Build Tools
+manifest.db
