@@ -2346,12 +2346,12 @@ export const PGMdialogue: DialogueTranslationEntries = {
 	  1: `@c{smile}Hé, toi aussi t’es là ?\n@c{smile_eclosed}Toujours invaincue, hein… ?
 				$@c{serious_mopen_fists}Je sais que j’ai l’air de t’avoir suivie ici, mais c'est pas complètement vrai.
 				$@c{serious_smile_fists}Pour être honnête, ça me démangeait d’avoir une revanche depuis que tu m'as battu.
-				$Je me suis beaucoup entrainé, alors sois sure que je vais pas retenir mes coups cette fois.
+				$Je me suis beaucoup entraîné, alors sois sure que je vais pas retenir mes coups cette fois.
                 $@c{serious_mopen_fists}Et comme la dernière fois, ne te retiens pas !\nC’est parti !`
     },
     "victory": {
 	  1: `@c{neutral_eclosed}Oh. Je crois que j’ai trop pris la confiance.
-				$@c{smile}Pas grave, c'est OK. Je me doutais que ça arriverait.\n@c{serious_mopen_fists}Je vais juste devoir encore plus m’entrainer !\n
+				$@c{smile}Pas grave, c'est OK. Je me doutais que ça arriverait.\n@c{serious_mopen_fists}Je vais juste devoir encore plus m’entraîner !\n
                 $@c{smile}Ah, et pas que t’aies réellement besoin d’aide, mais j’ai ça en trop sur moi qui pourrait t’intéresser.\n
 				$@c{serious_smile_fists}Mais n’espère plus en avoir d’autres !\nJe peux pas passer mon temps à aider mon adversaire.
                 $@c{smile}Bref, prends soin de toi !`
@@ -2363,11 +2363,11 @@ export const PGMdialogue: DialogueTranslationEntries = {
 				$@c{angry_mopen}Je sais à quoi tu penses et non, je t’espionne pas. @c{smile_eclosed}C’est juste que j’étais aussi dans le coin.
 				$@c{smile_ehalf}Heureuse pour toi, mais je veux juste te rappeler que c’est pas grave de perdre parfois.
 				$@c{smile}On apprend de nos erreurs, souvent plus que si on ne connaissait que le succès.
-				$@c{angry_mopen}Dans tous les cas je me suis bien entrainée pour cette revanche, t'as intérêt à tout donner !`
+				$@c{angry_mopen}Dans tous les cas je me suis bien entraînée pour cette revanche, t'as intérêt à tout donner !`
     },
     "victory": {
 	  1: `@c{neutral}Je… J’étais pas encore supposée perdre…
-				$@c{smile}Bon. Ça veut juste dire que je vais devoir encore plus m’entrainer !
+				$@c{smile}Bon. Ça veut juste dire que je vais devoir encore plus m’entraîner !
 				$@c{smile_wave}J’ai aussi ça en rab pour toi !\n@c{smile_wave_wink}Inutile de me remercier ~.
                 $@c{angry_mopen}C’était le dernier, terminé les cadeaux après celui-là !
                 $@c{smile_wave}Allez, tiens le coup !`
@@ -2386,7 +2386,7 @@ export const PGMdialogue: DialogueTranslationEntries = {
                 $@c{serious_mopen_fists}Si tu l’es, alors prouve-le.`
     },
     "victory": {
-	  1: "@c{angry_mhalf}C’est lunaire… J’ai presque fait que m’entrainer…\nAlors pourquoi il y a encore un tel écart entre nous ?"
+	  1: "@c{angry_mhalf}C’est lunaire… J’ai presque fait que m’entraîner…\nAlors pourquoi il y a encore un tel écart entre nous ?"
     },
   },
   "rival_3_female": {
@@ -2408,7 +2408,7 @@ export const PGMdialogue: DialogueTranslationEntries = {
     "encounter": {
       1: `@c{neutral}Hé.
 				$Je vais pas y aller par quatre chemins avec toi.\n@c{neutral_eclosed}Je suis là pour gagner. Simple, basique.
-				$@c{serious_mhalf_fists}J’ai appris à maximiser tout mon potentiel en m’entrainant d’arrachepied.
+				$@c{serious_mhalf_fists}J’ai appris à maximiser tout mon potentiel en m’entraînant d’arrachepied.
 				$@c{smile}C’est fou tout le temps que tu peux te dégager si tu dors pas en sacrifiant ta vie sociale.
 				$@c{serious_mopen_fists}Plus rien n’a d’importance désormais, pas tant que j’aurai pas gagné.
 				$@c{neutral_eclosed}J'ai atteint un stade où je ne peux plus perdre.\n@c{smile_eclosed}Je présume que ta philosophie était pas si fausse finalement.
@@ -2423,8 +2423,8 @@ export const PGMdialogue: DialogueTranslationEntries = {
     "encounter": {
 	  1: `@c{neutral}C’est moi ! Tu m’as pas encore oubliée… n’est-ce pas ?
 				$@c{smile}Tu devrais être fier d’être arrivé aussi loin. GG !\nMais c’est certainement pas la fin de ton aventure.
-				$@c{smile_eclosed}T’as éveillé en moi quelque chose que j’ignorais.\nTout mon temps passe dans l'entrainement.
-				$@c{smile_ehalf}Je dors et je mange à peine, je m’entraine juste tous les jours, et deviens de plus en plus forte.
+				$@c{smile_eclosed}T’as éveillé en moi quelque chose que j’ignorais.\nTout mon temps passe dans l'entraînement.
+				$@c{smile_ehalf}Je dors et je mange à peine, je m’entraîne juste tous les jours, et deviens de plus en plus forte.
                 $@c{neutral}En vrai, Je… J’ai de la peine à me reconnaitre.
 				$Mais maintenant, je suis au top de mes capacités.\nJe doute que tu sois de nouveau capable de me battre.
 				$Et tu sais quoi ? Tout ça, c’est de ta faute.\n@c{smile_ehalf}Et j’ignore si je dois te remercier ou te haïr.
@@ -4828,12 +4828,12 @@ export const PGFdialogue: DialogueTranslationEntries = {
 	  1: `@c{smile}Hé, toi aussi t’es là ?\n@c{smile_eclosed}Toujours invaincue, hein… ?
 				$@c{serious_mopen_fists}Je sais que j’ai l’air de t’avoir suivie ici, mais c'est pas complètement vrai.
 				$@c{serious_smile_fists}Pour être honnête, ça me démangeait d’avoir une revanche depuis que tu m'as battu.
-				$Je me suis beaucoup entrainé, alors sois sure que je vais pas retenir mes coups cette fois.
+				$Je me suis beaucoup entraîné, alors sois sure que je vais pas retenir mes coups cette fois.
                 $@c{serious_mopen_fists}Et comme la dernière fois, ne te retiens pas !\nC’est parti !`
     },
     "victory": {
 	  1: `@c{neutral_eclosed}Oh. Je crois que j’ai trop pris la confiance.
-				$@c{smile}Pas grave, c'est OK. Je me doutais que ça arriverait.\n@c{serious_mopen_fists}Je vais juste devoir encore plus m’entrainer !\n
+				$@c{smile}Pas grave, c'est OK. Je me doutais que ça arriverait.\n@c{serious_mopen_fists}Je vais juste devoir encore plus m’entraîner !\n
                 $@c{smile}Ah, et pas que t’aies réellement besoin d’aide, mais j’ai ça en trop sur moi qui pourrait t’intéresser.\n
 				$@c{serious_smile_fists}Mais n’espère plus en avoir d’autres !\nJe peux pas passer mon temps à aider mon adversaire.
                 $@c{smile}Bref, prends soin de toi !`
@@ -4845,11 +4845,11 @@ export const PGFdialogue: DialogueTranslationEntries = {
 				$@c{angry_mopen}Je sais à quoi tu penses et non, je t’espionne pas. @c{smile_eclosed}C’est juste que j’étais aussi dans le coin.
 				$@c{smile_ehalf}Heureuse pour toi, mais je veux juste te rappeler que c’est pas grave de perdre parfois.
 				$@c{smile}On apprend de nos erreurs, souvent plus que si on ne connaissait que le succès.
-				$@c{angry_mopen}Dans tous les cas je me suis bien entrainée pour cette revanche, t'as intérêt à tout donner !`
+				$@c{angry_mopen}Dans tous les cas je me suis bien entraînée pour cette revanche, t'as intérêt à tout donner !`
     },
     "victory": {
 	  1: `@c{neutral}Je… J’étais pas encore supposée perdre…
-				$@c{smile}Bon. Ça veut juste dire que je vais devoir encore plus m’entrainer !
+				$@c{smile}Bon. Ça veut juste dire que je vais devoir encore plus m’entraîner !
 				$@c{smile_wave}J’ai aussi ça en rab pour toi !\n@c{smile_wave_wink}Inutile de me remercier ~.
                 $@c{angry_mopen}C’était le dernier, terminé les cadeaux après celui-là !
                 $@c{smile_wave}Allez, tiens le coup !`
@@ -4868,7 +4868,7 @@ export const PGFdialogue: DialogueTranslationEntries = {
                 $@c{serious_mopen_fists}Si tu l’es, alors prouve-le.`
     },
     "victory": {
-	  1: "@c{angry_mhalf}C’est lunaire… J’ai presque fait que m’entrainer…\nAlors pourquoi il y a encore un tel écart entre nous ?"
+	  1: "@c{angry_mhalf}C’est lunaire… J’ai presque fait que m’entraîner…\nAlors pourquoi il y a encore un tel écart entre nous ?"
     },
   },
   "rival_3_female": {
@@ -4890,7 +4890,7 @@ export const PGFdialogue: DialogueTranslationEntries = {
     "encounter": {
       1: `@c{neutral}Hé.
 				$Je vais pas y aller par quatre chemins avec toi.\n@c{neutral_eclosed}Je suis là pour gagner. Simple, basique.
-				$@c{serious_mhalf_fists}J’ai appris à maximiser tout mon potentiel en m’entrainant d’arrachepied.
+				$@c{serious_mhalf_fists}J’ai appris à maximiser tout mon potentiel en m’entraînant d’arrachepied.
 				$@c{smile}C’est fou tout le temps que tu peux te dégager si tu dors pas en sacrifiant ta vie sociale.
 				$@c{serious_mopen_fists}Plus rien n’a d’importance désormais, pas tant que j’aurai pas gagné.
 				$@c{neutral_eclosed}J'ai atteint un stade où je ne peux plus perdre.\n@c{smile_eclosed}Je présume que ta philosophie était pas si fausse finalement.
@@ -4905,8 +4905,8 @@ export const PGFdialogue: DialogueTranslationEntries = {
     "encounter": {
 	  1: `@c{neutral}C’est moi ! Tu m’as pas encore oubliée… n’est-ce pas ?
 				$@c{smile}Tu devrais être fier d’être arrivé aussi loin. GG !\nMais c’est certainement pas la fin de ton aventure.
-				$@c{smile_eclosed}T’as éveillé en moi quelque chose que j’ignorais.\nTout mon temps passe dans l'entrainement.
-				$@c{smile_ehalf}Je dors et je mange à peine, je m’entraine juste tous les jours, et deviens de plus en plus forte.
+				$@c{smile_eclosed}T’as éveillé en moi quelque chose que j’ignorais.\nTout mon temps passe dans l'entraînement.
+				$@c{smile_ehalf}Je dors et je mange à peine, je m’entraîne juste tous les jours, et deviens de plus en plus forte.
                 $@c{neutral}En vrai, Je… J’ai de la peine à me reconnaitre.
 				$Mais maintenant, je suis au top de mes capacités.\nJe doute que tu sois de nouveau capable de me battre.
 				$Et tu sais quoi ? Tout ça, c’est de ta faute.\n@c{smile_ehalf}Et j’ignore si je dois te remercier ou te haïr.
@@ -5058,7 +5058,7 @@ export const PGMdoubleBattleDialogue: DialogueTranslationEntries = {
     "encounter": {
       1: `Red : … !
                   $Blue : Il est pas très loquace.
-					$Blue : Mais ne te laisse pas avoir, ça reste un Maitre Pokémon !`,
+					$Blue : Mais ne te laisse pas avoir, ça reste un Maître Pokémon !`,
     },
     "victory": {
       1: `Red : … !
@@ -5173,7 +5173,7 @@ export const PGFdoubleBattleDialogue: DialogueTranslationEntries = {
     "encounter": {
       1: `Red : … !
                   $Blue : Il est pas très loquace.
-					$Blue : Mais ne te laisse pas avoir, ça reste un Maitre Pokémon !`,
+					$Blue : Mais ne te laisse pas avoir, ça reste un Maître Pokémon !`,
     },
     "victory": {
       1: `Red : … !

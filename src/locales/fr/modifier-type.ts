@@ -4,7 +4,7 @@ export const modifierType: ModifierTypeTranslationEntries = {
   ModifierType: {
     "AddPokeballModifierType": {
       name: "{{pokeballName}} x{{modifierCount}}",
-      description: "Recevez {{modifierCount}} {{pokeballName}}·s (Inventaire : {{pokeballAmount}})\nTaux de capture : {{catchRate}}.",
+      description: "Recevez {{modifierCount}} {{pokeballName}} (Inventaire : {{pokeballAmount}})\nTaux de capture : {{catchRate}}.",
     },
     "AddVoucherModifierType": {
       name: "{{voucherTypeName}} x{{modifierCount}}",
@@ -151,7 +151,7 @@ export const modifierType: ModifierTypeTranslationEntries = {
 
     "SACRED_ASH": { name: "Cendre Sacrée" },
 
-    "REVIVER_SEED": { name: "Résugraine", description: "Réanime et restaure la moitié des PV de son porteur s’il tombe K.O. ." },
+    "REVIVER_SEED": { name: "Résugraine", description: "Réanime et restaure la moitié des PV de son porteur s’il tombe K.O." },
 
     "ETHER": { name: "Huile" },
     "MAX_ETHER": { name: "Huile Max" },
@@ -216,7 +216,7 @@ export const modifierType: ModifierTypeTranslationEntries = {
     "SHELL_BELL": { name: "Grelot Coque", description: "Soigne son porteur avec 1/8 des dégâts qu’il inflige à un Pokémon." },
 
     "TOXIC_ORB": { name: "Orbe Toxique", description: "Un orbe bizarre qui empoisonne gravement son porteur durant le combat." },
-    "FLAME_ORB": { name: "Orbe Flamme", description: "Un orbe bizarre qui brule son porteur durant le combat." },
+    "FLAME_ORB": { name: "Orbe Flamme", description: "Un orbe bizarre qui brûle son porteur durant le combat." },
 
     "BATON": { name: "Bâton", description: "Permet de transmettre les effets en cas de changement de Pokémon. Ignore les pièges." },
 
@@ -236,7 +236,7 @@ export const modifierType: ModifierTypeTranslationEntries = {
     "ENEMY_HEAL": { name: "Jeton Soin", description: "Soigne 2% des PV max à chaque tour." },
     "ENEMY_ATTACK_POISON_CHANCE": { name: "Jeton Poison" },
     "ENEMY_ATTACK_PARALYZE_CHANCE": { name: "Jeton Paralysie" },
-    "ENEMY_ATTACK_BURN_CHANCE": { name: "Jeton Brulure" },
+    "ENEMY_ATTACK_BURN_CHANCE": { name: "Jeton Brûlure" },
     "ENEMY_STATUS_EFFECT_HEAL_CHANCE": { name: "Jeton Total Soin", description: "Ajoute 2.5% de chances à chaque tour de se soigner d’un problème de statut." },
     "ENEMY_ENDURE_CHANCE": { name: "Jeton Ténacité" },
     "ENEMY_FUSED_CHANCE": { name: "Jeton Fusion", description: "Ajoute 1% de chances qu’un Pokémon sauvage soit une fusion." },
