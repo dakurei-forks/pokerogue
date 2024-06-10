@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import Phaser, { Scale } from "phaser";
 import BattleScene from "./battle-scene";
 import InvertPostFX from "./pipelines/invert";
 import { version } from "../package.json";
@@ -28,10 +28,12 @@ window.addEventListener("unhandledrejection", (event) => {
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.WEBGL,
   parent: "app",
+  autoCenter: Scale.CENTER_HORIZONTALLY,
   scale: {
     width: 1920,
     height: 1080,
-    mode: Phaser.Scale.FIT
+    mode: Phaser.Scale.FIT,
+    autoCenter: Scale.CENTER_VERTICALLY,
   },
   plugins: {
     global: [{
