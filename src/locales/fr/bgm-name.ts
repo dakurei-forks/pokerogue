@@ -1,145 +1,152 @@
 import { SimpleTranslationEntries } from "#app/interfaces/locales";
 
+/**
+ * Légende:
+ * [OFFICIEL]: Nom officiel sous lequel la piste a été commercialisée
+ * [ADAPTATION]: Traduction réalisée sur la base du nom officiel
+ * [CUSTOM]: Traduction totalement réalisée par la communauté
+ */
+
 export const bgmName: SimpleTranslationEntries = {
   "music": "Musique ",
   "missing_entries" : "{{name}}",
-  "battle_kanto_champion": "N2B2 - Vs. Maitre de Kanto",
-  "battle_johto_champion": "N2B2 - Vs. Maitre de Johto",
-  "battle_hoenn_champion": "N2B2 - Vs. Maitre de Hoenn",
-  "battle_sinnoh_champion": "N2B2 - Vs. Maitresse de Sinnoh",
-  "battle_champion_alder": "NB - Vs. Maitre d’Unys",
-  "battle_champion_iris": "N2B2 - Vs. Maitresse d’Unys",
-  "battle_kalos_champion": "XY - Maitresse de Kalos",
-  "battle_alola_champion": "USUL - Maitre d’Alola",
-  "battle_galar_champion": "ÉB - Maitre de Galar",
-  "battle_champion_geeta": "ÉV - Vs. Alisma la Maitresse",
-  "battle_champion_nemona": "ÉV - Vs. Menzi la Maitresse",
-  "battle_champion_kieran": "ÉV - Vs. Kassis le Maitre",
-  "battle_hoenn_elite": "ROSA - Vs. Conseil 4",
-  "battle_unova_elite": "NB - Vs. Conseil 4",
-  "battle_kalos_elite": "XY - Vs. Conseil 4",
-  "battle_alola_elite": "SL - Vs. Conseil 4",
-  "battle_galar_elite": "ÉB - Vs. Tournoi des Champions",
-  "battle_paldea_elite": "ÉV - Vs. Conseil 4",
-  "battle_bb_elite": "ÉV - Vs. Conseil 4 de l’Institut Myrtille",
-  "battle_final_encounter": "PDM ÉSDX - Vs. Rayquaza",
-  "battle_final": "NB - Vs. Ghetis",
-  "battle_kanto_gym": "N2B2 - Vs. Champion·ne d’Arène de Kanto",
-  "battle_johto_gym": "N2B2 - Vs. Champion·ne d’Arène de Johto",
-  "battle_hoenn_gym": "N2B2 - Vs. Champion·ne d’Arène de Hoenn",
-  "battle_sinnoh_gym": "N2B2 - Vs. Champion·ne d’Arène de Sinnoh",
-  "battle_unova_gym": "NB - Vs. Champion·ne d’Arène d’Unys",
-  "battle_kalos_gym": "XY - Vs. Champion·ne d’Arène de Kalos",
-  "battle_galar_gym": "ÉB - Vs. Champion·ne d’Arène de Galar",
-  "battle_paldea_gym": "ÉV - Vs. Champion·ne d’Arène de Paldea",
-  "battle_legendary_kanto": "XY - Vs. Légendaire de Kanto",
-  "battle_legendary_raikou": "HGSS - Vs. Raikou",
-  "battle_legendary_entei": "HGSS - Vs. Entei",
-  "battle_legendary_suicune": "HGSS - Vs. Suicune",
-  "battle_legendary_lugia": "HGSS - Vs. Lugia",
-  "battle_legendary_ho_oh": "HGSS - Vs. Ho-oh",
-  "battle_legendary_regis_g5": "N2B2 - Vs. Colosses Légendaires",
-  "battle_legendary_regis_g6": "ROSA - Vs. Colosses Légendaires",
-  "battle_legendary_gro_kyo": "ROSA - Vs. Groudon/Kyogre",
-  "battle_legendary_rayquaza": "ROSA - Vs. Rayquaza",
-  "battle_legendary_deoxys": "ROSA - Vs. Deoxys",
-  "battle_legendary_lake_trio": "ROSA - Vs. Gardiens des Lacs",
-  "battle_legendary_sinnoh": "ROSA - Vs. Légendaire de Sinnoh",
-  "battle_legendary_dia_pal": "ROSA - Vs. Dialga/Palkia",
-  "battle_legendary_giratina": "ROSA - Vs. Giratina",
-  "battle_legendary_arceus": "HGSS - Vs. Arceus",
-  "battle_legendary_unova": "NB - Vs. Légendaire d’Unys",
-  "battle_legendary_kyurem": "NB - Vs. Kyurem",
-  "battle_legendary_res_zek": "NB - Vs. Reshiram/Zekrom",
-  "battle_legendary_xern_yvel": "XY - Vs. Xerneas/Yveltal",
-  "battle_legendary_tapu": "SL - Vs. Divinités gardiennes d’Alola",
-  "battle_legendary_sol_lun": "SL - Vs. Solgaleo/Lunala",
-  "battle_legendary_ub": "SL - Vs. Ultra-Chimère",
-  "battle_legendary_dusk_dawn": "USUL - Vs. Necrozma Crinière du Couchant/Ailes de l’Aurore",
-  "battle_legendary_ultra_nec": "USUL - Vs. Ultra-Necrozma",
-  "battle_legendary_zac_zam": "ÉB - Vs. Zacian/Zamazenta",
-  "battle_legendary_glas_spec": "ÉB - Vs. Blizzeval/Spectreval",
-  "battle_legendary_calyrex": "ÉB - Vs. Sylveroy",
-  "battle_legendary_birds_galar": "ÉB - Vs. Oiseaux Légendaires de Galar",
-  "battle_legendary_ruinous": "ÉV - Vs. Trésors du fléau",
-  "battle_legendary_kor_mir": "ÉV - Profondeurs de la Zone Zéro (Combat)",
-  "battle_legendary_loyal_three": "ÉV - Vs. Adoramis",
-  "battle_legendary_ogerpon": "ÉV - Vs. Ogerpon",
-  "battle_legendary_terapagos": "ÉV - Vs. Terapagos",
-  "battle_legendary_pecharunt": "ÉV - Vs. Pêchaminus",
-  "battle_rival": "NB - Vs. Rival",
-  "battle_rival_2": "NB - Vs. N",
-  "battle_rival_3": "NB - Combat final Vs. N",
-  "battle_trainer": "NB - Vs. Dresseur·euse",
-  "battle_wild": "NB - Vs. Pokémon sauvage",
-  "battle_wild_strong": "NB - Vs. Pokémon puissant sauvage",
-  "end_summit": "PDM ÉSDX - Tour Céleste",
-  "battle_rocket_grunt": "HGSS Team Rocket Battle",
-  "battle_aqua_magma_grunt": "ORAS Team Aqua & Magma Battle",
-  "battle_galactic_grunt": "BDSP Team Galactic Battle",
-  "battle_plasma_grunt": "NB - Vs. Team Plasma",
-  "battle_flare_grunt": "XY Team Flare Battle",
-  "battle_rocket_boss": "USUM Giovanni Battle",
-  "battle_aqua_magma_boss": "ORAS Archie & Maxie Battle",
-  "battle_galactic_boss": "BDSP Cyrus Battle",
-  "battle_plasma_boss": "B2W2 Ghetsis Battle",
-  "battle_flare_boss": "XY Lysandre Battle",
+  "battle_kanto_champion": "N2B2 - Combat (Maître - version Kanto)", // [ADAPTATION]
+  "battle_johto_champion": "N2B2 - Combat (Maître - version Johto)", // [ADAPTATION]
+  "battle_hoenn_champion": "N2B2 - Combat (Maître - version Hoenn)", // [ADAPTATION]
+  "battle_sinnoh_champion": "N2B2 - Combat (Maître - version Sinnoh)", // [ADAPTATION]
+  "battle_champion_alder": "NB - Combat (Maître)", // [ADAPTATION]
+  "battle_champion_iris": "N2B2 - Combat (Iris Maître de la Ligue)", // [ADAPTATION]
+  "battle_kalos_champion": "XY - Combat (Maître)", // [ADAPTATION]
+  "battle_alola_champion": "USUL - Combat (Maître)", // [ADAPTATION]
+  "battle_galar_champion": "EB - Combat (Maître)", // [ADAPTATION]
+  "battle_champion_geeta": "EV - Combat (Alisma Maître)", // [ADAPTATION]
+  "battle_champion_nemona": "EV - Combat (Menzi Maître)", // [ADAPTATION]
+  "battle_champion_kieran": "EV - Combat (Kassis Maître)", // [ADAPTATION]
+  "battle_hoenn_elite": "ROSA - Combat (Conseil 4)", // [ADAPTATION]
+  "battle_unova_elite": "NB - Combat (Conseil 4)", // [ADAPTATION]
+  "battle_kalos_elite": "XY - Combat (Conseil 4)", // [ADAPTATION]
+  "battle_alola_elite": "SL - Combat (Conseil 4)", // [ADAPTATION]
+  "battle_galar_elite": "EB - Combat (Tournoi des Champions)", // [ADAPTATION]
+  "battle_paldea_elite": "EV - Combat (Conseil 4)", // [ADAPTATION]
+  "battle_bb_elite": "EV - Combat (Conseil 4 de l’Institut Myrtille)", // [ADAPTATION]
+  "battle_final_encounter": "PDM ESDX - Combat (Rayquaza)", // [ADAPTATION]
+  "battle_final": "NB - Combat (Ghetis)", // [ADAPTATION]
+  "battle_kanto_gym": "N2B2 - Combat (Champion d'Arène - version Kanto)", // [ADAPTATION]
+  "battle_johto_gym": "N2B2 - Combat (Champion d'Arène - version Johto)", // [ADAPTATION]
+  "battle_hoenn_gym": "N2B2 - Combat (Champion d'Arène - version Hoenn)", // [ADAPTATION]
+  "battle_sinnoh_gym": "N2B2 - Combat (Champion d'Arène - version Sinnoh)", // [ADAPTATION]
+  "battle_unova_gym": "NB - Combat (Champion d’Arène)", // [ADAPTATION]
+  "battle_kalos_gym": "XY - Combat (Champion d’Arène)", // [ADAPTATION]
+  "battle_galar_gym": "EB - Combat (Champion d’Arène)", // [ADAPTATION]
+  "battle_paldea_gym": "EV - Combat (Champion d’Arène)", // [ADAPTATION]
+  "battle_legendary_kanto": "XY - Combat (Légendaire de Kanto)", // [ADAPTATION]
+  "battle_legendary_raikou": "COAA - Combat (Raikou)", // [ADAPTATION]
+  "battle_legendary_entei": "COAA - Combat (Entei)", // [ADAPTATION]
+  "battle_legendary_suicune": "COAA - Combat (Suicune)", // [ADAPTATION]
+  "battle_legendary_lugia": "COAA - Combat (Lugia)", // [ADAPTATION]
+  "battle_legendary_ho_oh": "COAA - Combat (Ho-oh)", // [ADAPTATION]
+  "battle_legendary_regis_g5": "N2B2 - Combat (Regirock / Regice / Registeel)", // [ADAPTATION]
+  "battle_legendary_regis_g6": "ROSA - Combat (Regirock / Regice / Registeel)", // [ADAPTATION]
+  "battle_legendary_gro_kyo": "ROSA - Combat (Groudon / Kyogre)", // [ADAPTATION]
+  "battle_legendary_rayquaza": "ROSA - Combat (Rayquaza)", // [ADAPTATION]
+  "battle_legendary_deoxys": "ROSA - Combat (Deoxys)", // [ADAPTATION]
+  "battle_legendary_lake_trio": "ROSA - Combat (Gardiens des Lacs)", // [ADAPTATION]
+  "battle_legendary_sinnoh": "ROSA - Combat (Légendaire de Sinnoh)", // [ADAPTATION]
+  "battle_legendary_dia_pal": "ROSA - Combat (Dialga / Palkia)", // [ADAPTATION]
+  "battle_legendary_giratina": "ROSA - Combat (Giratina)", // [ADAPTATION]
+  "battle_legendary_arceus": "COAA - Combat (Arceus)", // [ADAPTATION]
+  "battle_legendary_unova": "NB - Combat (Légendaire d’Unys)", // [ADAPTATION]
+  "battle_legendary_kyurem": "NB - Combat (Kyurem)", // [ADAPTATION]
+  "battle_legendary_res_zek": "NB - Combat (Reshiram / Zekrom)", // [ADAPTATION]
+  "battle_legendary_xern_yvel": "XY - Combat (Xerneas / Yveltal)", // [ADAPTATION]
+  "battle_legendary_tapu": "SL - Combat (Divinités gardiennes d’Alola)", // [ADAPTATION]
+  "battle_legendary_sol_lun": "SL - Combat (Solgaleo / Lunala)", // [ADAPTATION]
+  "battle_legendary_ub": "SL - Combat (Ultra-Chimère)", // [ADAPTATION]
+  "battle_legendary_dusk_dawn": "USUL - Combat (Necrozma Crinière du Couchant / Ailes de l’Aurore)", // [ADAPTATION]
+  "battle_legendary_ultra_nec": "USUL - Combat (Ultra-Necrozma)", // [ADAPTATION]
+  "battle_legendary_zac_zam": "EB - Combat (Zacian / Zamazenta)", // [ADAPTATION]
+  "battle_legendary_glas_spec": "EB - Combat (Blizzeval / Spectreval)", // [ADAPTATION]
+  "battle_legendary_calyrex": "EB - Combat (Sylveroy)", // [ADAPTATION]
+  "battle_legendary_birds_galar": "EB - Combat (Oiseaux Légendaires de Galar)", // [ADAPTATION]
+  "battle_legendary_ruinous": "EV - Combat (Trésors du fléau)", // [ADAPTATION]
+  "battle_legendary_kor_mir": "EV - Combat (Profondeurs de la Zone Zéro)", // [ADAPTATION]
+  "battle_legendary_loyal_three": "EV - Combat (Adoramis)", // [ADAPTATION]
+  "battle_legendary_ogerpon": "EV - Combat (Ogerpon)", // [ADAPTATION]
+  "battle_legendary_terapagos": "EV - Combat (Terapagos)", // [ADAPTATION]
+  "battle_legendary_pecharunt": "EV - Combat (Pêchaminus)", // [ADAPTATION]
+  "battle_rival": "NB - Combat (Rival)", // [ADAPTATION]
+  "battle_rival_2": "NB - Combat (N)", // [ADAPTATION]
+  "battle_rival_3": "NB - Combat (N Final)", // [ADAPTATION]
+  "battle_trainer": "NB - Combat (Dresseur)", // [ADAPTATION]
+  "battle_wild": "NB - Combat (Pokémon sauvage)", // [ADAPTATION]
+  "battle_wild_strong": "NB - Combat (Pokémon sauvage puissant)", // [ADAPTATION]
+  "end_summit": "PDM ESDX - Tour Céleste", // [ADAPTATION]
+  "battle_rocket_grunt": "COAA - Combat (Team Rocket)", // [ADAPTATION]
+  "battle_aqua_magma_grunt": "ROSA - Combat (Team Aqua & Magma)", // [ADAPTATION]
+  "battle_galactic_grunt": "DEPS - Combat (Team Galaxie)", // [ADAPTATION]
+  "battle_plasma_grunt": "NB - Combat (Team Plasma)", // [ADAPTATION]
+  "battle_flare_grunt": "XY - Combat (Team Flare)", // [ADAPTATION]
+  "battle_rocket_boss": "USUL - Combat (Giovanni)", // [ADAPTATION]
+  "battle_aqua_magma_boss": "ROSA - Combat (Arthur & Max)", // [ADAPTATION]
+  "battle_galactic_boss": "DEPS - Combat (Hélio)", // [ADAPTATION]
+  "battle_plasma_boss": "N2B2 - Combat (Ghetis)", // [ADAPTATION]
+  "battle_flare_boss": "XY - Combat (Lysandre)", // [ADAPTATION]
 
   // Biome Music
-  "abyss": "PDM EdS - Cratère Obscur",
-  "badlands": "PDM EdS - Vallée Stérile",
-  "beach": "PDM EdS - Falaise Trempée",
-  "cave": "PDM EdS - Pic Céleste (grotte)",
-  "construction_site": "PDM EdS - Carrière Rocher",
-  "desert": "PDM EdS - Désert du Nord",
-  "dojo": "PDM EdS - Dojo Ossatueur",
-  "end": "PDM EdS - Tour Céleste",
-  "factory": "PDM EdS - Ruines Cachées",
-  "fairy_cave": "PDM EdS - Caverne Étoile",
-  "forest": "PDM EdS - Forêt Crépuscule",
-  "grass": "PDM EdS - Bois aux Pommes",
-  "graveyard": "PDM EdS - Forêt Trompeuse",
-  "ice_cave": "PDM EdS - Montagne Glacier",
-  "island": "PDM EdS - Côte Escarpée",
+  "abyss": "PDM2 - Cratère Obscur", // [ADAPTATION]
+  "badlands": "PDM2 - Vallée Stérile", // [ADAPTATION]
+  "beach": "PDM2 - Falaise Trempée", // [ADAPTATION]
+  "cave": "PDM2 - Pic Céleste (grotte)", // [ADAPTATION]
+  "construction_site": "PDM2 - Carrière Rocher", // [ADAPTATION]
+  "desert": "PDM2 - Désert du Nord", // [ADAPTATION]
+  "dojo": "PDM - Dojo Ossatueur", // [ADAPTATION]
+  "end": "PDM - Tour Céleste", // [ADAPTATION]
+  "factory": "PDM - Ruines Enfouies", // [ADAPTATION]
+  "fairy_cave": "PDM2 - Caverne Étoile", // [ADAPTATION]
+  "forest": "PDM2 - Forêt Crépuscule", // [ADAPTATION]
+  "grass": "PDM2 - Bois aux Pommes", // [ADAPTATION]
+  "graveyard": "PDM2 - Forêt Trompeuse", // [ADAPTATION]
+  "ice_cave": "PDM2 - Montagne Glacier", // [ADAPTATION]
+  "island": "PDM2 - Côte Escarpée", // [ADAPTATION]
   "jungle": "Lmz - Jungle", // The composer thinks about a more creative name
   "laboratory": "Firel - Laboratory", // The composer thinks about a more creative name
-  "lake": "PDM EdS - Caverne Cristal",
-  "meadow": "PDM EdS - Pic Céleste (forêt)",
+  "lake": "PDM2 - Caverne Cristal", // [ADAPTATION]
+  "meadow": "PDM2 - Pic Céleste (forêt)", // [ADAPTATION]
   "metropolis": "Firel - Metropolis", // The composer thinks about a more creative name
-  "mountain": "PDM EdS - Mt Corne",
-  "plains": "PDM EdS - Pic Céleste (prairie)",
-  "power_plant": "PDM EdS - Plaines Élek",
-  "ruins": "PDM EdS - Ruine Scellée",
-  "sea": "PDM EdS - Caverne Saline",
+  "mountain": "PDM2 - Mont Corne", // [ADAPTATION]
+  "plains": "PDM2 - Pic Céleste (prairie)", // [ADAPTATION]
+  "power_plant": "PDM2 - Plaines Élek", // [ADAPTATION]
+  "ruins": "PDM2 - Ruine Scellée", // [ADAPTATION]
+  "sea": "PDM2 - Caverne Saline", // [ADAPTATION]
   "seabed": "Firel - Seabed", // The composer thinks about a more creative name
-  "slum": "PDM EdS - Pic Céleste (côte)",
-  "snowy_forest": "PDM EdS - Pic Céleste (plaine enneigée)",
+  "slum": "PDM2 - Pic Céleste (côte)", // [ADAPTATION]
+  "snowy_forest": "PDM2 - Pic Céleste (plaine enneigée)", // [ADAPTATION]
   "space": "Firel - Aether",
-  "swamp": "PDM EdS - Mer Fermée",
-  "tall_grass": "PDM EdS - Forêt Brumeuse",
-  "temple": "PDM EdS - Grotte Égide",
-  "town": "PDM EdS - Donjon aléatoire - Thème 3",
-  "volcano": "PDM EdS - Grotte Étuve",
-  "wasteland": "PDM EdS - Terres Illusoires",
+  "swamp": "PDM2 - Mer Fermée", // [ADAPTATION]
+  "tall_grass": "PDM2 - Forêt Brumeuse", // [ADAPTATION]
+  "temple": "PDM2 - Grotte Égide", // [ADAPTATION]
+  "town": "PDM - Donjon aléatoire - Thème 3", // TODO: À définir
+  "volcano": "PDM2 - Grotte Étuve", // [ADAPTATION] // TODO: À remplacer par la musique de la cave magma de PDM
+  "wasteland": "PDM2 - Terres Illusoires", // [ADAPTATION]
 
   // Encounter
-  "encounter_ace_trainer": "NB - Regards croisés (Topdresseur·euse)",
-  "encounter_backpacker": "NB - Regards croisés (Randonneur·euse)",
-  "encounter_clerk": "NB - Regards croisés (Employé·e)",
-  "encounter_cyclist": "NB - Regards croisés (Cycliste)",
-  "encounter_lass": "NB - Regards croisés (Fillette)",
-  "encounter_parasol_lady": "NB - Regards croisés (Sœur Parasol)",
-  "encounter_pokefan": "NB - Regards croisés (Pokéfan)",
-  "encounter_psychic": "NB - Regards croisés (Kinésiste)",
-  "encounter_rich": "NB - Regards croisés (Gentleman)",
-  "encounter_rival": "NB - Tcheren",
-  "encounter_roughneck": "NB - Regards croisés (Loubard)",
-  "encounter_scientist": "NB - Regards croisés (Scientifique)",
-  "encounter_twins": "NB - Regards croisés (Jumelles)",
-  "encounter_youngster": "NB - Regards croisés (Gamin)",
+  "encounter_ace_trainer": "NB - Regards croisés (Topdresseur)", // [ADAPTATION]
+  "encounter_backpacker": "NB - Regards croisés (Randonneur)", // [ADAPTATION]
+  "encounter_clerk": "NB - Regards croisés (Employé)", // [ADAPTATION]
+  "encounter_cyclist": "NB - Regards croisés (Cycliste)", // [ADAPTATION]
+  "encounter_lass": "NB - Regards croisés (Fillette)", // [ADAPTATION]
+  "encounter_parasol_lady": "NB - Regards croisés (Sœur Parasol)", // [ADAPTATION]
+  "encounter_pokefan": "NB - Regards croisés (Pokéfan)", // [ADAPTATION]
+  "encounter_psychic": "NB - Regards croisés (Kinésiste)", // [ADAPTATION]
+  "encounter_rich": "NB - Regards croisés (Gentleman)", // [ADAPTATION]
+  "encounter_rival": "NB - Rencontre Tcheren", // [ADAPTATION]
+  "encounter_roughneck": "NB - Regards croisés (Loubard)", // [ADAPTATION]
+  "encounter_scientist": "NB - Regards croisés (Scientifique)", // [ADAPTATION]
+  "encounter_twins": "NB - Regards croisés (Jumelles)", // [ADAPTATION]
+  "encounter_youngster": "NB - Regards croisés (Gamin)", // [ADAPTATION]
 
   // Other
-  "heal": "NB - Soin de Pokémon",
-  "menu": "PDM EdS - Bienvenue dans le monde de Pokémon !",
-  "title": "PDM EdS - Menu Principal",
+  "heal": "NB - Pokémon Soignés", // [ADAPTATION]
+  "menu": "PDM EdS - Bienvenue dans le monde de Pokémon !", // [ADAPTATION]
+  "title": "PDM EdS - Menu Principal", // [ADAPTATION]
 } as const;
