@@ -79,7 +79,7 @@ export default class LoginFormUiHandler extends FormModalUiHandler {
   }
 
   getButtonLabels(config?: ModalConfig): string[] {
-    return [ i18next.t("menu:login"), i18next.t("menu:register")];
+    return [ i18next.t("menu:login") ];
   }
 
   getReadableErrorMessage(error: string): string {
