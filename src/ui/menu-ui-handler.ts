@@ -6,7 +6,7 @@ import { addWindow } from "./ui-theme";
 import MessageUiHandler from "./message-ui-handler";
 import { OptionSelectConfig, OptionSelectItem } from "./abstact-option-select-ui-handler";
 import { Tutorial, handleTutorial } from "../tutorial";
-import { loggedInUser, updateUserInfo } from "../account";
+import { updateUserInfo } from "../account";
 import i18next from "i18next";
 import {Button} from "#enums/buttons";
 import { GameDataType } from "#enums/game-data-type";
@@ -345,6 +345,7 @@ export default class MenuUiHandler extends MessageUiHandler {
         success = true;
         break;
       case MenuOptions.MANAGE_DATA:
+        /*
         if (!bypassLogin && !this.manageDataConfig.options.some(o => o.label === i18next.t("menuUiHandler:linkDiscord") || o.label === i18next.t("menuUiHandler:unlinkDiscord"))) {
           this.manageDataConfig.options.splice(this.manageDataConfig.options.length-1,0,
             {
@@ -390,6 +391,7 @@ export default class MenuUiHandler extends MessageUiHandler {
               }
             });
         }
+        */
         ui.setOverlayMode(Mode.MENU_OPTION_SELECT, this.manageDataConfig);
         success = true;
         break;
