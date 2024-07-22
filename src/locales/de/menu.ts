@@ -13,7 +13,7 @@ export const menu: SimpleTranslationEntries = {
   "newGame": "Neues Spiel",
   "settings": "Einstellungen",
   "selectGameMode": "Wähle einen Spielmodus",
-  "logInOrCreateAccount": "Melde dich an oder erstelle einen Account zum starten. Keine Email nötig!",
+  "logInOrCreateAccount": "Melde dich zum starten.",
   "username": "Benutzername",
   "password": "Passwort",
   "login": "Anmelden",
