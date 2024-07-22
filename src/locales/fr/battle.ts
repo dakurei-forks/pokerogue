@@ -1,11 +1,11 @@
 import { SimpleTranslationEntries } from "#app/interfaces/locales";
 
 export const battle: SimpleTranslationEntries = {
-  "bossAppeared": "Un {{bossName}} apparait.",
+  "bossAppeared": "Un {{bossName}} apparaît.",
   "trainerAppeared": "Un combat est lancé\npar {{trainerName}} !",
   "trainerAppearedDouble": "Un combat est lancé\npar {{trainerName}} !",
   "trainerSendOut": "{{pokemonName}} est envoyé par\n{{trainerName}} !",
-  "singleWildAppeared": "Un {{pokemonName}} sauvage apparait !",
+  "singleWildAppeared": "Un {{pokemonName}} sauvage apparaît !",
   "multiWildAppeared": "Un {{pokemonName1}} et un {{pokemonName2}}\nsauvages apparaissent !",
   "playerComeBack": "{{pokemonName}} !\nReviens !",
   "trainerComeBack": "{{trainerName}} retire {{pokemonName}} !",
@@ -59,8 +59,8 @@ export const battle: SimpleTranslationEntries = {
   "notDisabled": "La capacité {{moveName}}\nde {{pokemonName}} n’est plus sous entrave !",
   "turnEndHpRestore": "{{pokemonName}} récupère des PV !",
   "hpIsFull": "Les PV de {{pokemonName}}\nsont au maximum !",
-  "skipItemQuestion": "Êtes-vous sûr·e de ne pas vouloir prendre d’objet ?",
-  "eggHatching": "Hein ?",
+  "skipItemQuestion": "Êtes-vous sûr de ne pas vouloir prendre d’objet ?",
+  "eggHatching": "Hein ?!",
   "ivScannerUseQuestion": "Utiliser le Scanner d’IV sur {{pokemonName}} ?",
   "wildPokemonWithAffix": "{{pokemonName}} sauvage",
   "foePokemonWithAffix": "{{pokemonName}} ennemi",
@@ -105,7 +105,7 @@ export const battle: SimpleTranslationEntries = {
   "battlerTagsConfusedLapse": "{{pokemonNameWithAffix}}\nest confus !",
   "battlerTagsConfusedLapseHurtItself": "Il se blesse dans sa confusion.",
   "battlerTagsDestinyBondLapseIsBoss": "{{pokemonNameWithAffix}} n’est pas affecté\nle Lien du Destin !",
-  "battlerTagsDestinyBondLapse": "{{pokemonNameWithAffix}} entraine\n{{pokemonNameWithAffix2}} dans sa chute !",
+  "battlerTagsDestinyBondLapse": "{{pokemonNameWithAffix}} entraîne\n{{pokemonNameWithAffix2}} dans sa chute !",
   "battlerTagsInfatuatedOnAdd": "{{pokemonNameWithAffix}} est amoureux\nde {{sourcePokemonName}} !",
   "battlerTagsInfatuatedOnOverlap": "{{pokemonNameWithAffix}} est\ndéjà amoureux !",
   "battlerTagsInfatuatedLapse": "{{pokemonNameWithAffix}} est amoureux\nde {{sourcePokemonName}} !",

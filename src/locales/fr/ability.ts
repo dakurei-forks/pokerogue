@@ -111,7 +111,7 @@ export const ability: AbilityTranslationEntries = {
   },
   synchronize: {
     name: "Synchro",
-    description: "Quand le Pokémon est brulé, paralysé ou empoisonné par un autre Pokémon, il partage ce statut avec celui-ci.",
+    description: "Quand le Pokémon est brûlé, paralysé ou empoisonné par un autre Pokémon, il partage ce statut avec celui-ci.",
   },
   clearBody: {
     name: "Corps Sain",
@@ -163,7 +163,7 @@ export const ability: AbilityTranslationEntries = {
   },
   waterVeil: {
     name: "Ignifu-Voile",
-    description: "Le voile qui recouvre le Pokémon le protège des brulures.",
+    description: "Le voile qui recouvre le Pokémon le protège des brûlures.",
   },
   magnetPull: {
     name: "Magnépiège",
@@ -195,7 +195,7 @@ export const ability: AbilityTranslationEntries = {
   },
   flameBody: {
     name: "Corps Ardent",
-    description: "Peut bruler l’attaquant lorsque le Pokémon subit une attaque directe.",
+    description: "Peut brûler l’attaquant lorsque le Pokémon subit une attaque directe.",
   },
   runAway: {
     name: "Fuite",
@@ -551,7 +551,7 @@ export const ability: AbilityTranslationEntries = {
   },
   flareBoost: {
     name: "Rage Brûlure",
-    description: "Augmente la puissance des capacités spéciales quand le Pokémon est brulé.",
+    description: "Augmente la puissance des capacités spéciales quand le Pokémon est brûlé.",
   },
   harvest: {
     name: "Récolte",
@@ -795,7 +795,7 @@ export const ability: AbilityTranslationEntries = {
   },
   waterBubble: {
     name: "Aquabulle",
-    description: "Réduit la puissance des capacités de type Feu subies par le Pokémon. Il est également immunisé contre les brulures.",
+    description: "Réduit la puissance des capacités de type Feu subies par le Pokémon. Il est également immunisé contre les brûlures.",
   },
   steelworker: {
     name: "Expert Acier",

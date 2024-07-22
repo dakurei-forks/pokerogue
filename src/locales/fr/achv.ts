@@ -22,7 +22,7 @@ export const PGMachv: AchievementTranslationEntries = {
     name: "Banquier",
   },
   "10M_MONEY": {
-    name: "Évadé·e fiscal·e",
+    name: "Évadé fiscal",
   },
 
   "DamageAchv": {
@@ -45,7 +45,7 @@ export const PGMachv: AchievementTranslationEntries = {
     description: "Soigner {{healAmount}} {{HP}} en une fois avec une capacité, un talent ou un objet tenu",
   },
   "250_HEAL": {
-    name: "Infirmier·ère",
+    name: "Infirmier",
   },
   "1000_HEAL": {
     name: "Médecin",
@@ -74,19 +74,19 @@ export const PGMachv: AchievementTranslationEntries = {
     description: "Accumuler un total de {{ribbonAmount}} Rubans",
   },
   "10_RIBBONS": {
-    name: "Maitre·sse de la Ligue",
+    name: "Maître de la Ligue",
   },
   "25_RIBBONS": {
-    name: "Super Maitre·sse de la Ligue",
+    name: "Super Maître de la Ligue",
   },
   "50_RIBBONS": {
-    name: "Hyper Maitre·sse de la Ligue",
+    name: "Hyper Maître de la Ligue",
   },
   "75_RIBBONS": {
-    name: "Rogue Maitre·sse de la Ligue",
+    name: "Rogue Maître de la Ligue",
   },
   "100_RIBBONS": {
-    name: "Master Maitre·sse de la Ligue",
+    name: "Master Maître de la Ligue",
   },
 
   "TRANSFER_MAX_BATTLE_STAT": {
@@ -118,7 +118,7 @@ export const PGMachv: AchievementTranslationEntries = {
     description: "Fusionner deux Pokémon avec le Pointeau ADN",
   },
   "MINI_BLACK_HOLE": {
-    name: "Item-stellar",
+    name: "Interstellar",
     description: "Obtenir un Mini Trou Noir",
   },
   "CATCH_MYTHICAL": {
@@ -166,7 +166,7 @@ export const PGMachv: AchievementTranslationEntries = {
     description: "Avoir des IV parfaits sur un Pokémon",
   },
   "CLASSIC_VICTORY": {
-    name: "Invaincu·e",
+    name: "Invaincu",
     description: "Terminer le jeu en mode classique",
   },
 

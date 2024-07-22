@@ -58,7 +58,7 @@ export const settings: SimpleTranslationEntries = {
   "consistent": "Consistant",
   "mixedAnimated": "Mixte",
   "fusionPaletteSwaps": "Palettes de fusion",
-  "playerGender": "Genre de l’avatar",
+  "playerGender": "Genre du joueur",
   "typeHints": "Indications de type",
   "masterVolume": "Vol. principal",
   "bgmVolume": "Vol. musique",
