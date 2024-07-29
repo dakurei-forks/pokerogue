@@ -195,7 +195,7 @@ export default class MenuUiHandler extends MessageUiHandler {
         return true;
       }
     },
-    {
+    /* {
       label: "Consent Preferences",
       handler: () => {
         const consentLink = document.querySelector(".termly-display-preferences") as HTMLInputElement;
@@ -209,7 +209,7 @@ export default class MenuUiHandler extends MessageUiHandler {
         return true;
       },
       keepOpen: true
-    },
+    }, */
     {
       label: i18next.t("menuUiHandler:cancel"),
       handler: () => {
