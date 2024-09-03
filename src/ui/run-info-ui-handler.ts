@@ -196,7 +196,7 @@ export default class RunInfoUiHandler extends UiHandler {
   private async parseRunResult() {
     const genderIndex = this.scene.gameData.gender ?? PlayerGender.UNSET;
     const genderStr = PlayerGender[genderIndex];
-    const runResultTextStyle = this.isVictory ? TextStyle.PERFECT_IV : TextStyle.SUMMARY_RED;
+    const runResultTextStyle = this.isVictory ? TextStyle.HISTORY : TextStyle.HISTORY_RED;
     const runResultTitle = this.isVictory ? i18next.t("runHistory:victory") : i18next.t("runHistory:defeated", { context: genderStr });
     const runResultText = addTextObject(this.scene, 6, 5, `${runResultTitle} - ${i18next.t("saveSlotSelectUiHandler:wave")} ${this.runInfo.waveIndex}`, runResultTextStyle, { fontSize : "65px", lineSpacing: 0.1 });
 
@@ -319,7 +319,7 @@ export default class RunInfoUiHandler extends UiHandler {
     //addPokemonIcon() throws an error if the Pokemon used is a boss
     const enemy = enemyData.toPokemon(this.scene);
     const enemyIcon = this.scene.addPokemonIcon(enemy, 0, 0, 0, 0);
-    const enemyLevelStyle = bossStatus ? TextStyle.PARTY_RED : TextStyle.PARTY;
+    const enemyLevelStyle = bossStatus ? TextStyle.HISTORY_MOVE_RED : TextStyle.HISTORY_MOVE;
     const enemyLevel = addTextObject(this.scene, 36, 26, `${i18next.t("saveSlotSelectUiHandler:lv")}${Utils.formatLargeNumber(enemy.level, 1000)}`, enemyLevelStyle, { fontSize: "44px", color: "#f8f8f8" });
     enemyLevel.setShadow(0, 0, undefined);
     enemyLevel.setStroke("#424242", 14);
@@ -344,7 +344,7 @@ export default class RunInfoUiHandler extends UiHandler {
       enemyData["player"] = true;
       const enemy = enemyData.toPokemon(this.scene);
       const enemyIcon = this.scene.addPokemonIcon(enemy, 0, 0, 0, 0);
-      const enemyLevel = addTextObject(this.scene, 36, 26, `${i18next.t("saveSlotSelectUiHandler:lv")}${Utils.formatLargeNumber(enemy.level, 1000)}`, bossStatus ? TextStyle.PARTY_RED : TextStyle.PARTY, { fontSize: "44px", color: "#f8f8f8" });
+      const enemyLevel = addTextObject(this.scene, 36, 26, `${i18next.t("saveSlotSelectUiHandler:lv")}${Utils.formatLargeNumber(enemy.level, 1000)}`, bossStatus ? TextStyle.HISTORY_MOVE_RED : TextStyle.HISTORY_MOVE, { fontSize: "44px", color: "#f8f8f8" });
       enemyLevel.setShadow(0, 0, undefined);
       enemyLevel.setStroke("#424242", 14);
       enemyLevel.setOrigin(1, 0);
@@ -447,7 +447,7 @@ export default class RunInfoUiHandler extends UiHandler {
         }
       }
       enemyIcon.setPosition(39 * (e % 3) + 5, (35 * pokemonRowHeight));
-      const enemyLevel = addTextObject(this.scene, 43 * (e % 3), (27 * (pokemonRowHeight + 1)), `${i18next.t("saveSlotSelectUiHandler:lv")}${Utils.formatLargeNumber(enemy.level, 1000)}`, isBoss ? TextStyle.PARTY_RED : TextStyle.PARTY, { fontSize: "54px" });
+      const enemyLevel = addTextObject(this.scene, 43 * (e % 3), (27 * (pokemonRowHeight + 1)), `${i18next.t("saveSlotSelectUiHandler:lv")}${Utils.formatLargeNumber(enemy.level, 1000)}`, isBoss ? TextStyle.HISTORY_MOVE_RED : TextStyle.HISTORY_MOVE, { fontSize: "54px" });
       enemyLevel.setShadow(0, 0, undefined);
       enemyLevel.setStroke("#424242", 14);
       enemyLevel.setOrigin(0, 0);
@@ -517,7 +517,7 @@ export default class RunInfoUiHandler extends UiHandler {
     const runTime = Utils.getPlayTimeString(this.runInfo.playTime);
     runInfoText.appendText(`${i18next.t("runHistory:runLength")}: ${runTime}`, false);
     const runMoney = Utils.formatMoney(this.scene.moneyFormat, this.runInfo.money);
-    runInfoText.appendText(`[color=${getTextColor(TextStyle.MONEY)}]${i18next.t("battleScene:moneyOwned", { formattedMoney : runMoney })}[/color]`);
+    runInfoText.appendText(`[color=${getTextColor(TextStyle.HISTORY_MONEY, false, this.scene.uiTheme)}]${i18next.t("battleScene:moneyOwned", { formattedMoney : runMoney })}[/color]`);
     runInfoText.setPosition(7, 70);
     runInfoTextContainer.add(runInfoText);
     // Luck
@@ -653,7 +653,7 @@ export default class RunInfoUiHandler extends UiHandler {
       const pAbilityInfo = abilityLabel + ": " + pokemon.getAbility().name;
       // Japanese is set to a greater line spacing of 35px in addBBCodeTextObject() if lineSpacing < 12.
       const lineSpacing = (i18next.resolvedLanguage === "ja") ? 12 : 3;
-      const pokeInfoText = addBBCodeTextObject(this.scene, 0, 0, pName, TextStyle.SUMMARY, { fontSize: textContainerFontSize, lineSpacing: lineSpacing });
+      const pokeInfoText = addBBCodeTextObject(this.scene, 0, 0, pName, TextStyle.HISTORY, { fontSize: textContainerFontSize, lineSpacing: lineSpacing });
       pokeInfoText.appendText(`${i18next.t("saveSlotSelectUiHandler:lv")}${Utils.formatFancyLargeNumber(pokemon.level, 1)} - ${pNatureName}`);
       pokeInfoText.appendText(pAbilityInfo);
       pokeInfoText.appendText(pPassiveInfo);
@@ -677,12 +677,12 @@ export default class RunInfoUiHandler extends UiHandler {
       const speedLabel = (currentLanguage === "es" || currentLanguage === "pt_BR") ? i18next.t("runHistory:SPDshortened") : i18next.t("pokemonInfo:Stat.SPDshortened");
       const speed = speedLabel + ": " + pStats[5];
       // Column 1: HP Atk Def
-      const pokeStatText1 = addBBCodeTextObject(this.scene, -5, 0, hp, TextStyle.SUMMARY, { fontSize: textContainerFontSize, lineSpacing: lineSpacing });
+      const pokeStatText1 = addBBCodeTextObject(this.scene, -5, 0, hp, TextStyle.HISTORY, { fontSize: textContainerFontSize, lineSpacing: lineSpacing });
       pokeStatText1.appendText(atk);
       pokeStatText1.appendText(def);
       pokeStatTextContainer.add(pokeStatText1);
       // Column 2: SpAtk SpDef Speed
-      const pokeStatText2 = addBBCodeTextObject(this.scene, 25, 0, spatk, TextStyle.SUMMARY, { fontSize: textContainerFontSize, lineSpacing: lineSpacing });
+      const pokeStatText2 = addBBCodeTextObject(this.scene, 25, 0, spatk, TextStyle.HISTORY, { fontSize: textContainerFontSize, lineSpacing: lineSpacing });
       pokeStatText2.appendText(spdef);
       pokeStatText2.appendText(speed);
       pokeStatTextContainer.add(pokeStatText2);
@@ -729,7 +729,7 @@ export default class RunInfoUiHandler extends UiHandler {
         moveContainer.setScale(0.5);
       	const moveBg = this.scene.add.nineslice(0, 0, "type_bgs", "unknown", 85, 15, 2, 2, 2, 2);
       	moveBg.setOrigin(1, 0);
-      	const moveLabel = addTextObject(this.scene, -moveBg.width / 2, 2, "-", TextStyle.PARTY);
+      	const moveLabel = addTextObject(this.scene, -moveBg.width / 2, 2, "-", TextStyle.HISTORY_MOVE);
       	moveLabel.setOrigin(0.5, 0);
       	moveLabel.setName("text-move-label");
       	pokemonMoveBgs.push(moveBg);
@@ -828,7 +828,7 @@ export default class RunInfoUiHandler extends UiHandler {
     const endCard = this.scene.add.image(0, 0, `end_${isFemale ? "f" : "m"}`);
     endCard.setOrigin(0);
     endCard.setScale(0.5);
-    const text = addTextObject(this.scene, this.scene.game.canvas.width / 12, (this.scene.game.canvas.height / 6) - 16, i18next.t("battle:congratulations"), TextStyle.SUMMARY, { fontSize: "128px" });
+    const text = addTextObject(this.scene, this.scene.game.canvas.width / 12, (this.scene.game.canvas.height / 6) - 16, i18next.t("battle:congratulations"), TextStyle.HISTORY, { fontSize: "128px" });
     text.setOrigin(0.5);
     this.endCardContainer.add(endCard);
     this.endCardContainer.add(text);
@@ -997,4 +997,3 @@ export default class RunInfoUiHandler extends UiHandler {
     }
   }
 }
-

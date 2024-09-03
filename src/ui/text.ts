@@ -38,7 +38,12 @@ export enum TextStyle {
   MOVE_PP_EMPTY,
   SMALLER_WINDOW_ALT,
   BGM_BAR,
-  PERFECT_IV
+  PERFECT_IV,
+  HISTORY,
+  HISTORY_MONEY,
+  HISTORY_MOVE,
+  HISTORY_MOVE_RED,
+  HISTORY_RED
 }
 
 export interface TextStyleOptions {
@@ -139,20 +144,23 @@ export function getTextStyleOptions(style: TextStyle, uiTheme: UiTheme, extraSty
     case TextStyle.SUMMARY_GREEN:
     case TextStyle.WINDOW:
     case TextStyle.WINDOW_ALT:
+    case TextStyle.HISTORY:
+    case TextStyle.HISTORY_RED:
+    case TextStyle.HISTORY_MONEY:
       shadowXpos = 3;
       shadowYpos = 3;
       break;
     case TextStyle.STATS_LABEL:
       let fontSizeLabel = "96px";
       switch (lang) {
-        case "de":
-          shadowXpos = 3;
-          shadowYpos = 3;
-          fontSizeLabel = "80px";
-          break;
-        default:
-          fontSizeLabel = "96px";
-          break;
+      case "de":
+        shadowXpos = 3;
+        shadowYpos = 3;
+        fontSizeLabel = "80px";
+        break;
+      default:
+        fontSizeLabel = "96px";
+        break;
       }
       styleOptions.fontSize =  fontSizeLabel;
       break;
@@ -161,12 +169,12 @@ export function getTextStyleOptions(style: TextStyle, uiTheme: UiTheme, extraSty
       shadowYpos = 3;
       let fontSizeValue = "96px";
       switch (lang) {
-        case "de":
-          fontSizeValue = "80px";
-          break;
-        default:
-          fontSizeValue = "96px";
-          break;
+      case "de":
+        fontSizeValue = "80px";
+        break;
+      default:
+        fontSizeValue = "96px";
+        break;
       }
       styleOptions.fontSize =  fontSizeValue;
       break;
@@ -184,6 +192,8 @@ export function getTextStyleOptions(style: TextStyle, uiTheme: UiTheme, extraSty
       break;
     case TextStyle.PARTY:
     case TextStyle.PARTY_RED:
+    case TextStyle.HISTORY_MOVE:
+    case TextStyle.HISTORY_MOVE_RED:
       styleOptions.fontSize = defaultFontSize - 30;
       styleOptions.fontFamily = "pkmnems";
       break;
@@ -291,10 +301,13 @@ export function getTextColor(textStyle: TextStyle, shadow?: boolean, uiTheme: Ui
       }
       return !shadow ? "#f8f8f8" : "#6b5a73";
     case TextStyle.PARTY:
+    case TextStyle.HISTORY_MOVE:
       return !shadow ? "#f8f8f8" : "#707070";
     case TextStyle.PARTY_RED:
+    case TextStyle.HISTORY_MOVE_RED:
       return !shadow ? "#f89890" : "#984038";
     case TextStyle.SUMMARY:
+    case TextStyle.HISTORY:
       return !shadow ? "#f8f8f8" : "#636363";
     case TextStyle.SUMMARY_ALT:
       if (isLegacyTheme) {
@@ -304,12 +317,22 @@ export function getTextColor(textStyle: TextStyle, shadow?: boolean, uiTheme: Ui
     case TextStyle.SUMMARY_RED:
     case TextStyle.TOOLTIP_TITLE:
       return !shadow ? "#e70808" : "#ffbd73";
+    case TextStyle.HISTORY_RED:
+      if (isLegacyTheme) {
+        return !shadow ? "#e13d3d" : "#fca2a2";
+      }
+      return !shadow ? "#f89890" : "#984038";
     case TextStyle.SUMMARY_BLUE:
       return !shadow ? "#40c8f8" : "#006090";
     case TextStyle.SUMMARY_PINK:
       return !shadow ? "#f89890" : "#984038";
     case TextStyle.SUMMARY_GOLD:
     case TextStyle.MONEY:
+      return !shadow ? "#e8e8a8" : "#a0a060";
+    case TextStyle.HISTORY_MONEY:
+      if (isLegacyTheme) {
+        return !shadow ? "#a0a060" : "#e8e8a8";
+      }
       return !shadow ? "#e8e8a8" : "#a0a060";
     case TextStyle.SETTINGS_LOCKED:
     case TextStyle.SUMMARY_GRAY:
