@@ -39,7 +39,7 @@ export const GACHA_DEFAULT_SHINY_RATE = 128;
 export const GACHA_SHINY_UP_SHINY_RATE = 64;
 export const SAME_SPECIES_EGG_SHINY_RATE = 12;
 export const SAME_SPECIES_EGG_HA_RATE = 8;
-export const MANAPHY_EGG_MANAPHY_RATE = 8;
+export const MANAPHY_EGG_MANAPHY_RATE = 2;
 export const GACHA_EGG_HA_RATE = 192;
 
 // 1/x for legendary eggs, 1/x*2 for epic eggs, 1/x*4 for rare eggs, and 1/x*8 for common eggs

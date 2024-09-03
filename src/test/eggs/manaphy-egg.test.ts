@@ -60,7 +60,7 @@ describe("Manaphy Eggs", () => {
     }
 
     expect(manaphyCount + phioneCount).toBe(EGG_HATCH_COUNT);
-    expect(manaphyCount).toBe(1 / 8 * EGG_HATCH_COUNT);
+    expect(manaphyCount).toBe(1 / 2 * EGG_HATCH_COUNT);
     expect(rareEggMoveCount).toBe(1 / 12 * EGG_HATCH_COUNT);
   });
 
@@ -86,7 +86,7 @@ describe("Manaphy Eggs", () => {
     }
 
     expect(manaphyCount + phioneCount).toBe(EGG_HATCH_COUNT);
-    expect(manaphyCount).toBe(1 / 8 * EGG_HATCH_COUNT);
+    expect(manaphyCount).toBe(1 / 2 * EGG_HATCH_COUNT);
     expect(rareEggMoveCount).toBe(1 / 6 * EGG_HATCH_COUNT);
   });
 
