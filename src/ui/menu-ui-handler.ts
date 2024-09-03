@@ -256,29 +256,31 @@ export default class MenuUiHandler extends MessageUiHandler {
         keepOpen: true
       });
     }
-    manageDataOptions.push({
-      label: i18next.t("menuUiHandler:exportData"),
-      handler: () => {
-        this.scene.gameData.tryExportData(GameDataType.SYSTEM);
-        return true;
+    manageDataOptions.push(
+      {
+        label: i18next.t("menuUiHandler:exportData"),
+        handler: () => {
+          this.scene.gameData.tryExportData(GameDataType.SYSTEM);
+          return true;
+        },
+        keepOpen: true
       },
-      keepOpen: true
-    },
-    {
-      label: i18next.t("menuUiHandler:consentPreferences"),
-      handler: () => {
-        const consentLink = document.querySelector(".termly-display-preferences") as HTMLInputElement;
-        const clickEvent = new MouseEvent("click", {
-          view: window,
-          bubbles: true,
-          cancelable: true
-        });
-        consentLink.dispatchEvent(clickEvent);
-        consentLink.focus();
-        return true;
-      },
-      keepOpen: true
-    });
+      /* {
+        label: i18next.t("menuUiHandler:consentPreferences"),
+        handler: () => {
+          const consentLink = document.querySelector(".termly-display-preferences") as HTMLInputElement;
+          const clickEvent = new MouseEvent("click", {
+            view: window,
+            bubbles: true,
+            cancelable: true
+          });
+          consentLink.dispatchEvent(clickEvent);
+          consentLink.focus();
+          return true;
+        },
+        keepOpen: true
+      } */
+    );
     if (Utils.isLocal || Utils.isBeta) { // this should make sure we don't have this option in live
       manageDataOptions.push({
         label: "Test Dialogue",
