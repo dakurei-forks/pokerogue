@@ -526,6 +526,7 @@ export default class MenuUiHandler extends MessageUiHandler {
           success = true;
           break;
         case MenuOptions.MANAGE_DATA:
+        /*
           if (!bypassLogin && !this.manageDataConfig.options.some(o => o.label === i18next.t("menuUiHandler:linkDiscord") || o.label === i18next.t("menuUiHandler:unlinkDiscord"))) {
             this.manageDataConfig.options.splice(this.manageDataConfig.options.length - 1, 0,
               {
@@ -571,6 +572,7 @@ export default class MenuUiHandler extends MessageUiHandler {
                 }
               });
           }
+        */
           ui.setOverlayMode(Mode.MENU_OPTION_SELECT, this.manageDataConfig);
           success = true;
           break;
