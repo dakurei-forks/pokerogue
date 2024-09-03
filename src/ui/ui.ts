@@ -25,7 +25,6 @@ import EggListUiHandler from "./egg-list-ui-handler";
 import EggGachaUiHandler from "./egg-gacha-ui-handler";
 import { addWindow } from "./ui-theme";
 import LoginFormUiHandler from "./login-form-ui-handler";
-import RegistrationFormUiHandler from "./registration-form-ui-handler";
 import LoadingModalUiHandler from "./loading-modal-ui-handler";
 import * as Utils from "../utils";
 import GameStatsUiHandler from "./game-stats-ui-handler";
@@ -85,7 +84,7 @@ export enum Mode {
   EGG_LIST,
   EGG_GACHA,
   LOGIN_FORM,
-  REGISTRATION_FORM,
+  // REGISTRATION_FORM,
   LOADING,
   SESSION_RELOAD,
   UNAVAILABLE,
@@ -128,7 +127,7 @@ const noTransitionModes = [
   Mode.ACHIEVEMENTS,
   Mode.GAME_STATS,
   Mode.LOGIN_FORM,
-  Mode.REGISTRATION_FORM,
+  // Mode.REGISTRATION_FORM,
   Mode.LOADING,
   Mode.SESSION_RELOAD,
   Mode.UNAVAILABLE,
@@ -193,7 +192,7 @@ export default class UI extends Phaser.GameObjects.Container {
       new EggListUiHandler(scene),
       new EggGachaUiHandler(scene),
       new LoginFormUiHandler(scene),
-      new RegistrationFormUiHandler(scene),
+      // new RegistrationFormUiHandler(scene),
       new LoadingModalUiHandler(scene),
       new SessionReloadModalUiHandler(scene),
       new UnavailableModalUiHandler(scene),

@@ -84,7 +84,7 @@ export default class LoginFormUiHandler extends FormModalUiHandler {
   }
 
   override getButtonLabels(_config?: ModalConfig): string[] {
-    return [ i18next.t("menu:login"), i18next.t("menu:register") ];
+    return [ i18next.t("menu:login")  ];
   }
 
   override getReadableErrorMessage(error: string): string {

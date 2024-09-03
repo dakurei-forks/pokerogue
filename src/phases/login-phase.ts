@@ -50,7 +50,8 @@ export class LoginPhase extends Phase {
               () => {
                 this.scene.ui.playSelect();
                 loadData();
-              }, () => {
+              },
+              /* () => {
                 this.scene.playSound("menu_open");
                 this.scene.ui.setMode(Mode.REGISTRATION_FORM, {
                   buttonActions: [
@@ -81,6 +82,7 @@ export class LoginPhase extends Phase {
                 const googleUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${googleId}&redirect_uri=${redirectUri}&response_type=code&scope=openid`;
                 window.open(googleUrl, "_self");
               }
+              */
             ]
           });
         } else if (statusCode === 401) {
