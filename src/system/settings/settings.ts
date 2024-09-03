@@ -322,7 +322,7 @@ export const Setting: Array<Setting> = [
     key: SettingKeys.Enable_Retries,
     label: i18next.t("settings:enableRetries"),
     options: OFF_ON,
-    default: 0,
+    default: 1,
     type: SettingType.GENERAL
   },
   {
@@ -634,7 +634,7 @@ export const Setting: Array<Setting> = [
         label: i18next.t("settings:mixed")
       }
     ],
-    default: 0,
+    default: 1,
     type: SettingType.AUDIO,
     requireReload: true
   },
