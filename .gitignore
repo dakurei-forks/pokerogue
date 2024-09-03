@@ -41,3 +41,6 @@ coverage
 
 /dependency-graph.svg
 /.vs
+
+# Self Instance Build Tools
+manifest.db
