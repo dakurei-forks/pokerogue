@@ -39,6 +39,9 @@ export class LoadingScene extends SceneBase {
     this.loadImage("loading_bg", "arenas");
     this.loadImage("logo", "");
 
+    // Load events images (keeped for customs events)
+    // this.loadImage("event-filename", "events");
+
     // Load menu images
     this.loadAtlas("bg", "ui");
     this.loadAtlas("prompt", "ui");
@@ -250,6 +253,13 @@ export class LoadingScene extends SceneBase {
     } else {
       this.loadImage("halloween2024-event-en", "events");
     }
+
+    // Load events images (keeped for customs events)
+    // if (lang && availableLangs.includes(lang)) {
+    //   this.loadImage("september-update_"+lang, "events");
+    // } else {
+    //   this.loadImage("september-update_en", "events");
+    // }
 
     this.loadAtlas("statuses", "");
     this.loadAtlas("categories", "");

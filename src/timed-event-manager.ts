@@ -27,14 +27,50 @@ interface TimedEvent extends EventBanner {
 
 const timedEvents: TimedEvent[] = [
   {
+    name: "Pride Update",
+    eventType: EventType.SHINY,
+    shinyMultiplier: 2,
+    startDate: new Date(Date.UTC(2024, 5, 14, 0)),
+    endDate: new Date(Date.UTC(2024, 5, 23, 0)),
+    bannerKey: "pride-update",
+    scale: 0.075
+  },
+  {
+    name: "August Variant Update",
+    eventType: EventType.SHINY,
+    shinyMultiplier: 2,
+    startDate: new Date(Date.UTC(2024, 7, 16, 0)),
+    endDate: new Date(Date.UTC(2024, 7, 22, 0)),
+    bannerKey: "august-variant-update",
+    scale: 0.15
+  },
+  {
+    name: "September Update",
+    eventType: EventType.NO_TIMER_DISPLAY,
+    startDate: new Date(Date.UTC(2024, 7, 28, 0)),
+    endDate: new Date(Date.UTC(2024, 8, 15, 0)),
+    bannerKey: "september-update",
+    availableLangs: [ "en", "de", "it", "fr", "ja", "ko", "es", "pt-BR", "zh-CN" ],
+    scale: 0.27
+  },
+  {
+    name: "Egg Skip Update",
+    eventType: EventType.NO_TIMER_DISPLAY,
+    startDate: new Date(Date.UTC(2024, 8, 15, 0)),
+    endDate: new Date(Date.UTC(2024, 8, 19, 0)),
+    bannerKey: "egg-update",
+    scale: 0.19,
+    availableLangs: [ "en", "de", "it", "fr", "ja", "ko", "es", "pt-BR", "zh-CN" ]
+  },
+  {
     name: "Halloween Update",
     eventType: EventType.SHINY,
     shinyMultiplier: 2,
     friendshipMultiplier: 2,
-    startDate: new Date(Date.UTC(2024, 9, 27, 0)),
-    endDate: new Date(Date.UTC(2024, 10, 4, 0)),
+    startDate: new Date(Date.UTC(2024, 10, 5, 0)),
+    endDate: new Date(Date.UTC(2024, 10, 13, 0)),
     bannerKey: "halloween2024-event-",
-    scale: 0.21,
+    scale: 0.19,
     availableLangs: [ "en", "de", "it", "fr", "ja", "ko", "es", "pt-BR", "zh-CN" ]
   }
 ];
@@ -91,6 +127,7 @@ export class TimedEventDisplay extends Phaser.GameObjects.Container {
   private event: TimedEvent | nil;
   private eventTimerText: Phaser.GameObjects.Text;
   private banner: Phaser.GameObjects.Image;
+  private bannerShadow: Phaser.GameObjects.Rectangle;
   private availableWidth: number;
   private eventTimer: NodeJS.Timeout | null;
 
@@ -130,28 +167,28 @@ export class TimedEventDisplay extends Phaser.GameObjects.Container {
         }
       }
       console.log(this.event.bannerKey);
-      const padding = 5;
-      const showTimer = this.event.eventType !== EventType.NO_TIMER_DISPLAY;
-      const yPosition = this.scene.game.canvas.height / 6 - padding - (showTimer ? 10 : 0) - (this.event.yOffset ?? 0);
-      this.banner = new Phaser.GameObjects.Image(this.scene, this.availableWidth / 2, yPosition - padding, key);
-      this.banner.setName("img-event-banner");
-      this.banner.setOrigin(0.5, 1);
-      this.banner.setScale(this.event.scale ?? 0.18);
-      if (showTimer) {
-        this.eventTimerText = addTextObject(
-          this.scene,
-          this.banner.x,
-          this.banner.y + 2,
-          this.timeToGo(this.event.endDate),
-          TextStyle.WINDOW
-        );
-        this.eventTimerText.setName("text-event-timer");
-        this.eventTimerText.setScale(0.15);
-        this.eventTimerText.setOrigin(0.5, 0);
 
-        this.add(this.eventTimerText);
-      }
-      this.add(this.banner);
+      this.banner = new Phaser.GameObjects.Image(this.scene, ((this.scene.game.canvas.width / 6) / 4) + 20, 152, key);
+      this.banner.setName("img-event-banner");
+      this.banner.setOrigin(0.5, 1.0);
+      this.banner.setScale(this.event.scale);
+
+      this.bannerShadow = new Phaser.GameObjects.Rectangle(this.scene, this.banner.x + 2, this.banner.y + 2, this.banner.width, this.banner.height, 0x484848);
+      this.bannerShadow.setName("rect-event-banner-shadow");
+      this.bannerShadow.setOrigin(0.5, 1.0);
+      this.bannerShadow.setScale(this.event.scale);
+      this.bannerShadow.setAlpha(0.5);
+
+      this.eventTimerText = addTextObject(this.scene, ((this.scene.game.canvas.width / 6) / 4) + 20, ((this.scene.game.canvas.height / 6) / 2) + 74, this.timeToGo(this.event.endDate), TextStyle.EVENTS);
+      this.eventTimerText.setName("text-event-timer");
+      this.eventTimerText.setScale(0.15);
+      this.eventTimerText.setOrigin(0.5, 0.5);
+
+      this.add([
+        this.eventTimerText,
+        this.bannerShadow,
+        this.banner
+      ]);
     }
   }
 
@@ -189,11 +226,11 @@ export class TimedEventDisplay extends Phaser.GameObjects.Container {
     const secs  = Math.round(diff % 6e4 / 1e3);
 
     // Return formatted string
-    return "Event Ends in : " + z(days) + "d " + z(hours) + "h " + z(mins) + "m " + z(secs) + "s";
+    return i18next.t("custom:endEvent", { days: z(days), hours: z(hours), minutes: z(mins), seconds: z(secs) });
   }
 
   updateCountdown() {
-    if (this.event && this.event.eventType !== EventType.NO_TIMER_DISPLAY) {
+    if (this.event) {
       this.eventTimerText.setText(this.timeToGo(this.event.endDate));
     }
   }

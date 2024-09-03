@@ -44,7 +44,8 @@ export enum TextStyle {
   HISTORY_MOVE,
   HISTORY_MOVE_RED,
   HISTORY_RED,
-  MYSTERY_EVENT
+  MYSTERY_EVENT,
+  EVENTS
 }
 
 export interface TextStyleOptions {
@@ -180,6 +181,7 @@ export function getTextStyleOptions(style: TextStyle, uiTheme: UiTheme, extraSty
       styleOptions.fontSize =  fontSizeValue;
       break;
     case TextStyle.MESSAGE:
+    case TextStyle.EVENTS:
     case TextStyle.SETTINGS_LABEL:
     case TextStyle.SETTINGS_LOCKED:
     case TextStyle.SETTINGS_SELECTED:
@@ -270,6 +272,7 @@ export function getTextColor(textStyle: TextStyle, shadow?: boolean, uiTheme: Ui
   const isLegacyTheme = uiTheme === UiTheme.LEGACY;
   switch (textStyle) {
     case TextStyle.MESSAGE:
+    case TextStyle.EVENTS:
       return !shadow ? "#f8f8f8" : "#6b5a73";
     case TextStyle.WINDOW:
     case TextStyle.MOVE_INFO_CONTENT:
