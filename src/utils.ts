@@ -237,7 +237,7 @@ export function formatFancyLargeNumber(number: number, rounded: number = 3): str
     number /= Math.pow(1000, exponent);
   }
 
-  return `${(exponent === 0) || number % 1 === 0 ? number : number.toFixed(rounded)}${AbbreviationsLargeNumber[exponent]}`;
+  return `${(exponent === 0) ? number : number.toFixed(rounded)}${AbbreviationsLargeNumber[exponent]}`;
 }
 
 export function formatMoney(format: MoneyFormat, amount: number) {
