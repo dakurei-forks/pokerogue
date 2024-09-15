@@ -231,10 +231,16 @@ export default class Battle {
     }
     for (const pokemon of battlers) {
       if (this.battleSpec === BattleSpec.FINAL_BOSS) {
-        if (pokemon.formIndex) {
-          return "battle_final";
+        // CUSTOM: Add 1st phase music instead of using encounter music
+        if (!this.started) {
+          return "battle_final_encounter";
+        } else {
+          if (pokemon.formIndex === 1) {
+            return "battle_final";
+          } else {
+            return "battle_final";
+          }
         }
-        return "battle_final_encounter";
       }
       if (pokemon.species.legendary || pokemon.species.subLegendary || pokemon.species.mythical) {
         if (scene.musicPreference === 0) {

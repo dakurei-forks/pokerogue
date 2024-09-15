@@ -330,6 +330,12 @@ export class EncounterPhase extends BattlePhase {
       } else {
         this.end();
       }
+
+      // CUSTOM: Refreshes ETERNATUS state to use battle music independently of the encounter
+      if (this.scene.currentBattle.battleSpec === BattleSpec.FINAL_BOSS) {
+        this.scene.currentBattle.started = true;
+        this.scene.playBgm(undefined);
+      }
     } else if (this.scene.currentBattle.battleType === BattleType.TRAINER) {
       const trainer = this.scene.currentBattle.trainer;
       trainer?.untint(100, "Sine.easeOut");
