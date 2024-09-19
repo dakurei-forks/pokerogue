@@ -18,7 +18,6 @@ import { SummonPhase } from "#app/phases/summon-phase";
 import { UnlockPhase } from "#app/phases/unlock-phase";
 import { achvs, ChallengeAchv } from "#app/system/achv";
 import { Unlockables } from "#app/system/unlockables";
-import { Mode } from "#app/ui/ui";
 import * as Utils from "#app/utils";
 import { PlayerGender } from "#enums/player-gender";
 import { TrainerType } from "#enums/trainer-type";
@@ -57,32 +56,28 @@ export class GameOverPhase extends BattlePhase {
     } else if (this.victory || !this.scene.enableRetries) {
       this.handleGameOver();
     } else {
-      this.scene.ui.showText(i18next.t("battle:retryBattle"), null, () => {
-        this.scene.ui.setMode(Mode.CONFIRM, () => {
-          this.scene.ui.fadeOut(1250).then(() => {
-            this.scene.reset();
-            this.scene.clearPhaseQueue();
-            this.scene.gameData.loadSession(this.scene, this.scene.sessionSlotId).then(() => {
-              this.scene.pushPhase(new EncounterPhase(this.scene, true));
+      this.scene.ui.fadeOut(1250).then(() => {
+        this.scene.reset();
+        this.scene.clearPhaseQueue();
+        this.scene.gameData.loadSession(this.scene, this.scene.sessionSlotId).then(() => {
+          this.scene.pushPhase(new EncounterPhase(this.scene, true));
 
-              const availablePartyMembers = this.scene.getParty().filter(p => p.isAllowedInBattle()).length;
+          const availablePartyMembers = this.scene.getParty().filter(p => p.isAllowedInBattle()).length;
 
-              this.scene.pushPhase(new SummonPhase(this.scene, 0));
-              if (this.scene.currentBattle.double && availablePartyMembers > 1) {
-                this.scene.pushPhase(new SummonPhase(this.scene, 1));
-              }
-              if (this.scene.currentBattle.waveIndex > 1 && this.scene.currentBattle.battleType !== BattleType.TRAINER) {
-                this.scene.pushPhase(new CheckSwitchPhase(this.scene, 0, this.scene.currentBattle.double));
-                if (this.scene.currentBattle.double && availablePartyMembers > 1) {
-                  this.scene.pushPhase(new CheckSwitchPhase(this.scene, 1, this.scene.currentBattle.double));
-                }
-              }
+          this.scene.pushPhase(new SummonPhase(this.scene, 0));
+          if (this.scene.currentBattle.double && availablePartyMembers > 1) {
+            this.scene.pushPhase(new SummonPhase(this.scene, 1));
+          }
+          if (this.scene.currentBattle.waveIndex > 1 && this.scene.currentBattle.battleType !== BattleType.TRAINER) {
+            this.scene.pushPhase(new CheckSwitchPhase(this.scene, 0, this.scene.currentBattle.double));
+            if (this.scene.currentBattle.double && availablePartyMembers > 1) {
+              this.scene.pushPhase(new CheckSwitchPhase(this.scene, 1, this.scene.currentBattle.double));
+            }
+          }
 
-              this.scene.ui.fadeIn(1250);
-              this.end();
-            });
-          });
-        }, () => this.handleGameOver(), false, 0, 0, 1000);
+          this.scene.ui.fadeIn(1250);
+          this.end();
+        });
       });
     }
   }
@@ -216,4 +211,3 @@ export class GameOverPhase extends BattlePhase {
     }
   }
 }
-
