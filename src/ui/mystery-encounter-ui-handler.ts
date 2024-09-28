@@ -338,9 +338,9 @@ export default class MysteryEncounterUiHandler extends UiHandler {
     this.encounterOptions = this.overrideSettings?.overrideOptions ?? mysteryEncounter.options;
     this.optionsMeetsReqs = [];
 
-    const titleText: string | null = getEncounterText(this.scene, mysteryEncounter.dialogue.encounterOptionsDialogue?.title, TextStyle.TOOLTIP_TITLE);
-    const descriptionText: string | null = getEncounterText(this.scene, mysteryEncounter.dialogue.encounterOptionsDialogue?.description, TextStyle.TOOLTIP_CONTENT);
-    const queryText: string | null = getEncounterText(this.scene, mysteryEncounter.dialogue.encounterOptionsDialogue?.query, TextStyle.TOOLTIP_CONTENT);
+    const titleText: string | null = getEncounterText(this.scene, mysteryEncounter.dialogue.encounterOptionsDialogue?.title, TextStyle.MYSTERY_EVENT, this.scene.uiTheme);
+    const descriptionText: string | null = getEncounterText(this.scene, mysteryEncounter.dialogue.encounterOptionsDialogue?.description, TextStyle.TOOLTIP_CONTENT, this.scene.uiTheme);
+    const queryText: string | null = getEncounterText(this.scene, mysteryEncounter.dialogue.encounterOptionsDialogue?.query, TextStyle.TOOLTIP_CONTENT, this.scene.uiTheme);
 
     // Clear options container (except cursor)
     this.optionsContainer.removeAll(true);
@@ -369,9 +369,9 @@ export default class MysteryEncounterUiHandler extends UiHandler {
       let text: string | null;
       if (option.hasRequirements() && this.optionsMeetsReqs[i] && (option.optionMode === MysteryEncounterOptionMode.DEFAULT_OR_SPECIAL || option.optionMode === MysteryEncounterOptionMode.DISABLED_OR_SPECIAL)) {
         // Options with special requirements that are met are automatically colored green
-        text = getEncounterText(this.scene, label, TextStyle.SUMMARY_GREEN);
+        text = getEncounterText(this.scene, label, TextStyle.SUMMARY_GREEN, this.scene.uiTheme);
       } else {
-        text = getEncounterText(this.scene, label, optionDialogue.style ? optionDialogue.style : TextStyle.WINDOW);
+        text = getEncounterText(this.scene, label, optionDialogue.style ? optionDialogue.style : TextStyle.HISTORY_MOVE, this.scene.uiTheme);
       }
 
       if (text) {
@@ -426,7 +426,7 @@ export default class MysteryEncounterUiHandler extends UiHandler {
     this.viewPartyXPosition = viewPartyText.x - 10;
 
     // Description Window
-    const titleTextObject = addBBCodeTextObject(this.scene, 0, 0, titleText ?? "", TextStyle.TOOLTIP_TITLE, { wordWrap: { width: 750 }, align: "center", lineSpacing: -8 });
+    const titleTextObject = addBBCodeTextObject(this.scene, 0, 0, titleText ?? "", TextStyle.MYSTERY_EVENT, { wordWrap: { width: 750 }, align: "center", lineSpacing: -8 });
     this.descriptionContainer.add(titleTextObject);
     titleTextObject.setPosition(72 - titleTextObject.displayWidth / 2, 5.5);
 
@@ -511,9 +511,9 @@ export default class MysteryEncounterUiHandler extends UiHandler {
     const cursorOption = this.encounterOptions[cursor];
     const optionDialogue = cursorOption.dialogue!;
     if (!this.optionsMeetsReqs[cursor] && (cursorOption.optionMode === MysteryEncounterOptionMode.DISABLED_OR_DEFAULT || cursorOption.optionMode === MysteryEncounterOptionMode.DISABLED_OR_SPECIAL) && optionDialogue.disabledButtonTooltip) {
-      text = getEncounterText(this.scene, optionDialogue.disabledButtonTooltip, TextStyle.TOOLTIP_CONTENT);
+      text = getEncounterText(this.scene, optionDialogue.disabledButtonTooltip, TextStyle.TOOLTIP_CONTENT, this.scene.uiTheme);
     } else {
-      text = getEncounterText(this.scene, optionDialogue.buttonTooltip, TextStyle.TOOLTIP_CONTENT);
+      text = getEncounterText(this.scene, optionDialogue.buttonTooltip, TextStyle.TOOLTIP_CONTENT, this.scene.uiTheme);
     }
 
     // Auto-color options green/blue for good/bad by looking for (+)/(-)

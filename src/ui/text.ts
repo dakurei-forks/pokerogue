@@ -43,7 +43,8 @@ export enum TextStyle {
   HISTORY_MONEY,
   HISTORY_MOVE,
   HISTORY_MOVE_RED,
-  HISTORY_RED
+  HISTORY_RED,
+  MYSTERY_EVENT
 }
 
 export interface TextStyleOptions {
@@ -185,6 +186,7 @@ export function getTextStyleOptions(style: TextStyle, uiTheme: UiTheme, extraSty
       break;
     case TextStyle.BATTLE_INFO:
     case TextStyle.MONEY:
+    case TextStyle.MYSTERY_EVENT:
     case TextStyle.TOOLTIP_TITLE:
       styleOptions.fontSize = defaultFontSize - 24;
       shadowXpos = 3.5;
@@ -317,6 +319,11 @@ export function getTextColor(textStyle: TextStyle, shadow?: boolean, uiTheme: Ui
     case TextStyle.SUMMARY_RED:
     case TextStyle.TOOLTIP_TITLE:
       return !shadow ? "#e70808" : "#ffbd73";
+    case TextStyle.MYSTERY_EVENT:
+      if (isLegacyTheme) {
+        return !shadow ? "#984038" : "#f89890";
+      }
+      return !shadow ? "#f89890" : "#984038";
     case TextStyle.HISTORY_RED:
       if (isLegacyTheme) {
         return !shadow ? "#e13d3d" : "#fca2a2";
