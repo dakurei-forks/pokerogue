@@ -154,14 +154,14 @@ export function getTextStyleOptions(style: TextStyle, uiTheme: UiTheme, extraSty
     case TextStyle.STATS_LABEL:
       let fontSizeLabel = "96px";
       switch (lang) {
-      case "de":
-        shadowXpos = 3;
-        shadowYpos = 3;
-        fontSizeLabel = "80px";
-        break;
-      default:
-        fontSizeLabel = "96px";
-        break;
+        case "de":
+          shadowXpos = 3;
+          shadowYpos = 3;
+          fontSizeLabel = "80px";
+          break;
+        default:
+          fontSizeLabel = "96px";
+          break;
       }
       styleOptions.fontSize =  fontSizeLabel;
       break;
@@ -170,12 +170,12 @@ export function getTextStyleOptions(style: TextStyle, uiTheme: UiTheme, extraSty
       shadowYpos = 3;
       let fontSizeValue = "96px";
       switch (lang) {
-      case "de":
-        fontSizeValue = "80px";
-        break;
-      default:
-        fontSizeValue = "96px";
-        break;
+        case "de":
+          fontSizeValue = "80px";
+          break;
+        default:
+          fontSizeValue = "96px";
+          break;
       }
       styleOptions.fontSize =  fontSizeValue;
       break;
