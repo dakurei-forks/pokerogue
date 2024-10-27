@@ -32,7 +32,6 @@ let wikiUrl = "https://wiki.pokerogue.net/start";
 const discordUrl = "https://discord.gg/uWpTfdKG49";
 const githubUrl = "https://github.com/pagefaultgames/pokerogue";
 const redditUrl = "https://www.reddit.com/r/pokerogue";
-const donateUrl = "https://github.com/sponsors/patapancakes";
 
 export default class MenuUiHandler extends MessageUiHandler {
   private readonly textPadding = 8;
@@ -373,14 +372,6 @@ export default class MenuUiHandler extends MessageUiHandler {
         label: "Reddit",
         handler: () => {
           window.open(redditUrl, "_blank")?.focus();
-          return true;
-        },
-        keepOpen: true
-      },
-      {
-        label: i18next.t("menuUiHandler:donate"),
-        handler: () => {
-          window.open(donateUrl, "_blank")?.focus();
           return true;
         },
         keepOpen: true
