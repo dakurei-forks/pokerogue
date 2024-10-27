@@ -40,7 +40,7 @@ export class TitlePhase extends Phase {
     this.scene.ui.clearText();
     this.scene.ui.fadeIn(250);
 
-    this.scene.playBgm("title", true);
+    this.scene.playBgm("title", false);
 
     this.scene.gameData.getSession(loggedInUser?.lastSessionSlot ?? -1).then(sessionData => {
       if (sessionData) {

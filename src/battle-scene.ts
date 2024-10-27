@@ -1984,6 +1984,10 @@ export default class BattleScene extends SceneBase {
 
   getBgmLoopPoint(bgmName: string): number {
     switch (bgmName) {
+      case "title": // Pokémon Khoto Main Theme
+        return 5.2;
+      case "menu": // Welcome to the World of Pokémon (Zame - Pokémon Legends Arceus)
+        return 53.794;
       case "battle_kanto_champion": //B2W2 Kanto Champion Battle
         return 13.950;
       case "battle_johto_champion": //B2W2 Johto Champion Battle
@@ -2026,8 +2030,10 @@ export default class BattleScene extends SceneBase {
         return 19.434;
       case "battle_final_encounter": //PMD RTDX Rayquaza's Domain
         return 19.159;
-      case "battle_final": //BW Ghetsis Battle
-        return 16.453;
+      case "battle_final_first_phase": //PSMD First Dark Matter Battle
+        return 13.289;
+      case "battle_final_second_phase": //PSMD Second Dark Matter Battle
+        return 112.208;
       case "battle_kanto_gym": //B2W2 Kanto Gym Battle
         return 13.857;
       case "battle_johto_gym": //B2W2 Johto Gym Battle

@@ -784,7 +784,7 @@ export class Arena {
       case Biome.POWER_PLANT:
         return 9.447;
       case Biome.VOLCANO:
-        return 17.637;
+        return 33.128;
       case Biome.GRAVEYARD:
         return 3.232;
       case Biome.DOJO:

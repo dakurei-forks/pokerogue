@@ -236,9 +236,9 @@ export default class Battle {
           return "battle_final_encounter";
         } else {
           if (pokemon.formIndex === 1) {
-            return "battle_final";
+            return "battle_final_second_phase";
           } else {
-            return "battle_final";
+            return "battle_final_first_phase";
           }
         }
       }
