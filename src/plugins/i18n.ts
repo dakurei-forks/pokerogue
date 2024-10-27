@@ -185,6 +185,7 @@ export async function initI18n(): Promise<void> {
       "challenges",
       "commandUiHandler",
       "common",
+      "custom",
       "achv",
       "dialogue",
       "battleSpecDialogue",
