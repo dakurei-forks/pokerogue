@@ -166,7 +166,10 @@ export const trainerPartyTemplates = {
   RIVAL_3: new TrainerPartyCompoundTemplate(new TrainerPartyTemplate(1, PartyMemberStrength.STRONG), new TrainerPartyTemplate(1, PartyMemberStrength.AVERAGE), new TrainerPartyTemplate(1, PartyMemberStrength.AVERAGE, false, true), new TrainerPartyTemplate(1, PartyMemberStrength.WEAK, false, true)),
   RIVAL_4: new TrainerPartyCompoundTemplate(new TrainerPartyTemplate(1, PartyMemberStrength.STRONG), new TrainerPartyTemplate(1, PartyMemberStrength.AVERAGE), new TrainerPartyTemplate(2, PartyMemberStrength.AVERAGE, false, true), new TrainerPartyTemplate(1, PartyMemberStrength.WEAK, false, true)),
   RIVAL_5: new TrainerPartyCompoundTemplate(new TrainerPartyTemplate(1, PartyMemberStrength.STRONG), new TrainerPartyTemplate(1, PartyMemberStrength.AVERAGE), new TrainerPartyTemplate(3, PartyMemberStrength.AVERAGE, false, true), new TrainerPartyTemplate(1, PartyMemberStrength.STRONG)),
-  RIVAL_6: new TrainerPartyCompoundTemplate(new TrainerPartyTemplate(1, PartyMemberStrength.STRONG), new TrainerPartyTemplate(1, PartyMemberStrength.AVERAGE), new TrainerPartyTemplate(3, PartyMemberStrength.AVERAGE, false, true), new TrainerPartyTemplate(1, PartyMemberStrength.STRONGER))
+  RIVAL_6: new TrainerPartyCompoundTemplate(new TrainerPartyTemplate(1, PartyMemberStrength.STRONG), new TrainerPartyTemplate(1, PartyMemberStrength.AVERAGE), new TrainerPartyTemplate(3, PartyMemberStrength.AVERAGE, false, true), new TrainerPartyTemplate(1, PartyMemberStrength.STRONGER)),
+
+  // Customs Templates
+  CHALLENGER: new TrainerPartyCompoundTemplate(new TrainerPartyTemplate(1, PartyMemberStrength.STRONG), new TrainerPartyTemplate(3, PartyMemberStrength.AVERAGE, false, true), new TrainerPartyTemplate(1, PartyMemberStrength.STRONG), new TrainerPartyTemplate(1, PartyMemberStrength.STRONGER))
 };
 
 type PartyTemplateFunc = (scene: BattleScene) => TrainerPartyTemplate;
@@ -906,6 +909,57 @@ export class TrainerConfig {
   }
 
   /**
+     * Initializes the trainer configuration for a Challenger.
+     * @param {Species | Species[]} signatureSpecies - The signature species for the Challenger.
+     * @param isMale - Whether the Challenger is Male or Female (for localization of the title).
+     * @returns {TrainerConfig} - The updated TrainerConfig instance.
+     **/
+  initForChallenger(signatureSpecies: (Species | Species[])[], isMale: boolean): TrainerConfig {
+    // Check if the internationalization (i18n) system is initialized.
+    if (!getIsInitialized()) {
+      initI18n();
+    }
+
+    // Set the party templates for the Challenger.
+    this.setPartyTemplates(trainerPartyTemplates.CHALLENGER);
+
+    // Set up party members with their corresponding species.
+    signatureSpecies.forEach((speciesPool, s) => {
+      // Ensure speciesPool is an array.
+      if (!Array.isArray(speciesPool)) {
+        speciesPool = [ speciesPool ];
+      }
+      // Set a function to get a random party member from the species pool.
+      this.setPartyMemberFunc(-(s + 1), getRandomPartyMemberFunc(speciesPool));
+    });
+
+    // Set species filter to only include species with a base total of 460 or higher.
+    this.setSpeciesFilter(p => p.baseTotal >= 460);
+
+    // Localize the trainer's name by converting it to lowercase and replacing spaces with underscores.
+    const nameForCall = this.name.toLowerCase().replace(/\s/g, "_");
+    this.name = i18next.t(`trainerNames:${nameForCall}`);
+
+    // Set the title to "challenger". (this is the key in the i18n file)
+    this.setTitle("challenger");
+    if (!isMale) {
+      this.setTitle("challenger_female");
+    }
+
+    // Configure various properties for the Challenger.
+    this.setMoneyMultiplier(5);
+    this.setBoss();
+    this.setStaticParty();
+    this.setHasVoucher(true);
+    this.setEncounterBgm("challenger");
+    this.setBattleBgm("battle_challenger");
+    this.setMixedBattleBgm("battle_challenger");
+    this.setVictoryBgm("victory_challenger");
+
+    return this;
+  }
+
+  /**
      * Initializes the trainer configuration for a Champion.
      * @param {Species | Species[]} signatureSpecies The signature species for the Champion.
      * @param isMale Whether the Champion is Male or Female (for localization of the title).
@@ -1336,6 +1390,10 @@ export const signatureSpecies: SignatureSpecies = {
   GEETA: [ Species.MIRAIDON, [ Species.ESPATHRA, Species.VELUZA ], [ Species.AVALUGG, Species.HISUI_AVALUGG ], Species.KINGAMBIT ], // Glimmora lead
   NEMONA: [ Species.KORAIDON, Species.PAWMOT, [ Species.DUDUNSPARCE, Species.ORTHWORM ], [ Species.MEOWSCARADA, Species.SKELEDIRGE, Species.QUAQUAVAL ]], // Lycanroc lead
   KIERAN: [[ Species.GRIMMSNARL, Species.INCINEROAR, Species.PORYGON_Z ], Species.OGERPON, Species.TERAPAGOS, Species.HYDRAPPLE ], // Poliwrath/Politoed lead
+
+  // Customs signature species
+  // DAKUREI: [[ Species.GENGAR, Species.DUSKNOIR, Species.MIMIKYU ], [ Species.METAGROSS, Species.PORYGON_Z, Species.LUCARIO ], [ Species.DRAGONITE, Species.DRAGAPULT ]], // Perrserker/Delcatty lead, Celebi, Mega Steelix
+  // SAO: [[ Species.MISDREAVUS, Species.SPIRITOMB ], [ Species.HAXORUS, Species.SALAMENCE ], [ Species.LAPRAS, Species.SWAMPERT ], [ Species.INCINEROAR, Species.MAWILE ], [ Species.SANDY_SHOCKS, Species.RESHIRAM ]], // Mega Gallade lead
 };
 
 export const trainerConfigs: TrainerConfigs = {
@@ -2530,6 +2588,109 @@ export const trainerConfigs: TrainerConfigs = {
     .setMixedBattleBgm("mystery_encounter_weird_dream")
     .setVictoryBgm("mystery_encounter_weird_dream")
     .setLocalizedName("Future Self F")
-    .setPartyTemplates(new TrainerPartyTemplate(6, PartyMemberStrength.STRONG))
-};
+    .setPartyTemplates(new TrainerPartyTemplate(6, PartyMemberStrength.STRONG)),
 
+  // Customs Configs
+  [TrainerType.DAKUREI]: new TrainerConfig(t = TrainerType.DAKUREI).initForChallenger([], true).setEncounterBgm(TrainerType.DAKUREI).setBattleBgm("battle_chronos_dark").setMixedBattleBgm("battle_chronos_dark")
+    .setPartyMemberFunc(0, getRandomPartyMemberFunc([ Species.PERRSERKER, Species.DELCATTY ], TrainerSlot.TRAINER, true, p => {
+      if (p.species.speciesId === Species.PERRSERKER) {
+        p.nickname = btoa(unescape(encodeURIComponent("Hadès")));
+        p.gender = Gender.MALE;
+        p.abilityIndex = 1; // Tough Claws
+        p.passive = true; // Steelworker
+        p.moveset = [
+          new PokemonMove(Moves.BEHEMOTH_BASH, 0, 3),
+          new PokemonMove(Moves.IRON_HEAD, 0, 3),
+          new PokemonMove(Moves.AQUA_CUTTER, 0, 3),
+          new PokemonMove(Moves.SWORDS_DANCE)
+        ];
+      }
+      if (p.species.speciesId === Species.DELCATTY) {
+        p.nickname = btoa(unescape(encodeURIComponent("Eurydice")));
+        p.gender = Gender.FEMALE;
+        p.abilityIndex = 1; // Normalize
+        p.passive = true; // Scrappy
+        p.shiny = true;
+        p.variant = 1;
+        p.moveset = [
+          new PokemonMove(Moves.THUNDEROUS_KICK, 0, 3),
+          new PokemonMove(Moves.FACADE, 0, 3),
+          new PokemonMove(Moves.HYPER_VOICE, 0, 3),
+          new PokemonMove(Moves.WORK_UP)
+        ];
+      }
+      p.setBoss(true, 2);
+      p.pokeball = PokeballType.ULTRA_BALL;
+    }))
+    .setPartyMemberFunc(1, getRandomPartyMemberFunc([ Species.GENGAR, Species.DUSKNOIR, Species.MIMIKYU ]))
+    .setPartyMemberFunc(2, getRandomPartyMemberFunc([ Species.METAGROSS, Species.PORYGON_Z, Species.LUCARIO ]))
+    .setPartyMemberFunc(3, getRandomPartyMemberFunc([ Species.DRAGONITE, Species.DRAGAPULT ]))
+    .setPartyMemberFunc(4, getRandomPartyMemberFunc([ Species.CELEBI ], TrainerSlot.TRAINER, true, p => {
+      p.setBoss(true, 2);
+      p.generateAndPopulateMoveset();
+      p.pokeball = PokeballType.MASTER_BALL;
+      p.shiny = true;
+      p.variant = 1;
+    }))
+    .setPartyMemberFunc(5, getRandomPartyMemberFunc([ Species.STEELIX ], TrainerSlot.TRAINER, true, p => {
+      p.setBoss(true, 3);
+      p.formIndex = 1;
+      p.generateAndPopulateMoveset();
+      p.pokeball = PokeballType.ROGUE_BALL;
+      p.generateName();
+    }))
+    .setGenModifiersFunc(party => {
+      return [
+      modifierTypes.TERA_SHARD().generateType([], [ party[0].species.type1 ])!.withIdFromFunc(modifierTypes.TERA_SHARD).newModifier(party[0]) as PersistentModifier,
+      modifierTypes.TERA_SHARD().generateType([], [ party[3].species.type1 ])!.withIdFromFunc(modifierTypes.TERA_SHARD).newModifier(party[3]) as PersistentModifier
+      ]; // TODO: is the bang correct?
+    }),
+  [TrainerType.SAO]: new TrainerConfig(++t).initForChallenger([], false)
+    .setPartyMemberFunc(0, getRandomPartyMemberFunc([ Species.MISDREAVUS, Species.SPIRITOMB ], TrainerSlot.TRAINER, true, p => {
+      if (p.species.speciesId === Species.MISDREAVUS) {
+        p.abilityIndex = 0; // Levitate
+        p.passive = true; // Beads of Ruin
+        p.moveset = [
+          new PokemonMove(Moves.SHADOW_BALL, 0, 3),
+          new PokemonMove(Moves.MOONBLAST, 0, 3),
+          new PokemonMove(Moves.ASTRAL_BARRAGE, 0, 3),
+          new PokemonMove(Moves.TAKE_HEART)
+        ];
+      }
+      if (p.species.speciesId === Species.SPIRITOMB) {
+        p.abilityIndex = 0; // Pressure (replace with Infiltrator when abilities available !)
+        p.passive = true; // Vessel of Ruin
+        p.moveset = [
+          new PokemonMove(Moves.HEX, 0, 3),
+          new PokemonMove(Moves.SPECTRAL_THIEF, 0, 3),
+          new PokemonMove(Moves.WILL_O_WISP),
+          new PokemonMove(Moves.STRENGTH_SAP)
+        ];
+      }
+      p.setBoss(true, 2);
+      p.pokeball = PokeballType.ULTRA_BALL;
+    }))
+    .setPartyMemberFunc(1, getRandomPartyMemberFunc([ Species.HAXORUS, Species.SALAMENCE ]))
+    .setPartyMemberFunc(2, getRandomPartyMemberFunc([ Species.LAPRAS, Species.SWAMPERT ]))
+    .setPartyMemberFunc(3, getRandomPartyMemberFunc([ Species.INCINEROAR, Species.MAWILE ]))
+    .setPartyMemberFunc(4, getRandomPartyMemberFunc([ Species.SANDY_SHOCKS, Species.RESHIRAM ], TrainerSlot.TRAINER, true, p => {
+      p.setBoss(true, 2);
+      p.generateAndPopulateMoveset();
+      p.pokeball = PokeballType.MASTER_BALL;
+    }))
+    .setPartyMemberFunc(5, getRandomPartyMemberFunc([ Species.GALLADE ], TrainerSlot.TRAINER, true, p => {
+      p.setBoss(true, 3);
+      p.formIndex = 1;
+      p.shiny = true;
+      p.variant = 2;
+      p.generateAndPopulateMoveset();
+      p.pokeball = PokeballType.ROGUE_BALL;
+      p.generateName();
+    }))
+    .setGenModifiersFunc(party => {
+      return [
+      modifierTypes.TERA_SHARD().generateType([], [ party[0].species.type1 ])!.withIdFromFunc(modifierTypes.TERA_SHARD).newModifier(party[0]) as PersistentModifier,
+      modifierTypes.TERA_SHARD().generateType([], [ party[3].species.type1 ])!.withIdFromFunc(modifierTypes.TERA_SHARD).newModifier(party[3]) as PersistentModifier
+      ]; // TODO: is the bang correct?
+    }),
+};

@@ -316,7 +316,9 @@ class RunEntryContainer extends Phaser.GameObjects.Container {
         const tObj = data.trainer.toTrainer(this.scene);
         // Because of the interesting mechanics behind rival names, the rival name and title have to be retrieved differently
         const RIVAL_TRAINER_ID_THRESHOLD = 375;
-        if (data.trainer.trainerType >= RIVAL_TRAINER_ID_THRESHOLD) {
+        // Need to update condition with the new custom trainers
+        const CUSTOM_TRAINERS_ID_THRESHOLD = 900;
+        if (data.trainer.trainerType >= RIVAL_TRAINER_ID_THRESHOLD && data.trainer.trainerType < CUSTOM_TRAINERS_ID_THRESHOLD) {
           const rivalName = (tObj.variant === TrainerVariant.FEMALE) ? "trainerNames:rival_female" : "trainerNames:rival";
           const gameOutcomeLabel = addTextObject(this.scene, 8, 5, `${i18next.t("runHistory:defeatedRival", { context: genderStr })} ${i18next.t(rivalName)}`, TextStyle.WINDOW);
           this.add(gameOutcomeLabel);

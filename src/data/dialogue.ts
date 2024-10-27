@@ -3117,7 +3117,29 @@ export const trainerTypeDialogue: TrainerTypeDialogue = {
         "dialogue:rival_6_female.victory.1",
       ],
     }
-  ]
+  ],
+  [TrainerType.DAKUREI]: {
+    encounter: [
+      "dialogue:dakurei.encounter.1"
+    ],
+    victory: [
+      "dialogue:dakurei.victory.1"
+    ],
+    defeat: [
+      "dialogue:dakurei.defeat.1"
+    ]
+  },
+  [TrainerType.SAO]: {
+    encounter: [
+      "dialogue:sao.encounter.1"
+    ],
+    victory: [
+      "dialogue:sao.victory.1"
+    ],
+    defeat: [
+      "dialogue:sao.defeat.1"
+    ]
+  }
 };
 
 

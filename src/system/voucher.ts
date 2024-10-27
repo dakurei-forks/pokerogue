@@ -105,9 +105,8 @@ export function initVouchers() {
     .filter(tt => trainerConfigs[tt].isBoss && trainerConfigs[tt].getDerivedType() !== TrainerType.RIVAL && trainerConfigs[tt].hasVoucher);
 
   for (const trainerType of bossTrainerTypes) {
-    const voucherType = trainerConfigs[trainerType].moneyMultiplier < 10
-      ? VoucherType.PLUS
-      : VoucherType.PREMIUM;
+    // Change value from 10 to 5 (need premium voucher for challengers)
+    const voucherType = (trainerConfigs[trainerType].moneyMultiplier < 5) ? VoucherType.PLUS : VoucherType.PREMIUM;
     const key = TrainerType[trainerType];
     const trainerName = trainerConfigs[trainerType].name;
     const trainer = trainerConfigs[trainerType];

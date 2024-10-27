@@ -523,6 +523,7 @@ export interface FixedBattleConfigs {
  * Evil team grunts on 35, 62, 64, and 112
  * Evil team admin on 66 and 114
  * Evil leader on 115, 165
+ * Challenger on 130 (CUSTOM)
  * E4 on 182, 184, 186, 188
  * Champion on 190
  */
@@ -555,6 +556,8 @@ export const classicFixedBattles: FixedBattleConfigs = {
   [ClassicFixedBossWaves.EVIL_BOSS_1]: new FixedBattleConfig().setBattleType(BattleType.TRAINER).setSeedOffsetWave(35)
     .setGetTrainerFunc(getRandomTrainerFunc([ TrainerType.ROCKET_BOSS_GIOVANNI_1, TrainerType.MAXIE, TrainerType.ARCHIE, TrainerType.CYRUS, TrainerType.GHETSIS, TrainerType.LYSANDRE, TrainerType.LUSAMINE, TrainerType.GUZMA, TrainerType.ROSE, TrainerType.PENNY ]))
     .setCustomModifierRewards({ guaranteedModifierTiers: [ ModifierTier.ROGUE, ModifierTier.ROGUE, ModifierTier.ULTRA, ModifierTier.ULTRA, ModifierTier.ULTRA ], allowLuckUpgrades: false }),
+  [130]: new FixedBattleConfig().setBattleType(BattleType.TRAINER)
+    .setGetTrainerFunc(getRandomTrainerFunc([ TrainerType.DAKUREI, TrainerType.SAO ])),
   [145]: new FixedBattleConfig().setBattleType(BattleType.TRAINER)
     .setGetTrainerFunc(scene => new Trainer(scene, TrainerType.RIVAL_5, scene.gameData.gender === PlayerGender.MALE ? TrainerVariant.FEMALE : TrainerVariant.DEFAULT))
     .setCustomModifierRewards({ guaranteedModifierTiers: [ ModifierTier.ROGUE, ModifierTier.ROGUE, ModifierTier.ROGUE, ModifierTier.ULTRA, ModifierTier.ULTRA ], allowLuckUpgrades: false }),

@@ -2182,6 +2182,10 @@ export default class BattleScene extends SceneBase {
         return 11.42;
       case "battle_star_boss": //SV Cassiopeia Battle
         return 25.764;
+      case "battle_challenger": // PWT Finals Battle
+        return 17.505;
+      case "battle_chronos_dark": // PVT Dark Battle
+        return 42.506;
       case "mystery_encounter_gen_5_gts": // BW GTS
         return 8.52;
       case "mystery_encounter_gen_6_gts": // XY GTS
