@@ -17,6 +17,29 @@ enum ScoreboardCategory {
   WEEKLY
 }
 
+interface LanguageSetting {
+  titleTextSize?: string;
+  labelTextSize?: string;
+  waveLabelTextOffset?: integer;
+  scoreLabelTextOffset?: integer;
+}
+
+const languageSettings: { [key: string]: LanguageSetting } = {
+  "fr": {
+    labelTextSize: "52px",
+    waveLabelTextOffset: -2,
+    scoreLabelTextOffset: 0,
+  },
+  "de": {
+    labelTextSize: "50px",
+  },
+  "pt": {
+    labelTextSize: "48px",
+    waveLabelTextOffset: -6,
+    scoreLabelTextOffset: -8,
+  },
+};
+
 export class DailyRunScoreboard extends Phaser.GameObjects.Container {
   private loadingLabel: Phaser.GameObjects.Text;
   private titleLabel: Phaser.GameObjects.Text;
@@ -59,10 +82,14 @@ export class DailyRunScoreboard extends Phaser.GameObjects.Container {
   }
 
   setup() {
+    const currentLanguage = i18next.resolvedLanguage!;
+    const langSettingKey = Object.keys(languageSettings).find(lang => currentLanguage?.includes(lang))!;
+    const textSettings = languageSettings[langSettingKey];
+
     const titleWindow = addWindow(this.scene, 0, 0, 114, 18, false, false, undefined, undefined, WindowVariant.THIN);
     this.add(titleWindow);
 
-    this.titleLabel = addTextObject(this.scene, titleWindow.displayWidth / 2, titleWindow.displayHeight / 2, i18next.t("menu:loading"), TextStyle.WINDOW, { fontSize: "64px" });
+    this.titleLabel = addTextObject(this.scene, titleWindow.displayWidth / 2, titleWindow.displayHeight / 2, i18next.t("menu:loading"), TextStyle.WINDOW, { fontSize: textSettings?.titleTextSize || "64px" });
     this.titleLabel.setOrigin(0.5, 0.5);
     this.add(this.titleLabel);
 
@@ -106,7 +133,7 @@ export class DailyRunScoreboard extends Phaser.GameObjects.Container {
       }
     });
 
-    this.pageNumberLabel = addTextObject(this.scene, window.displayWidth / 2, titleWindow.displayHeight + window.displayHeight - 16, "1", TextStyle.WINDOW, { fontSize: "64px" });
+    this.pageNumberLabel = addTextObject(this.scene, window.displayWidth / 2, titleWindow.displayHeight + window.displayHeight - 16, "1", TextStyle.WINDOW, { fontSize: textSettings?.titleTextSize || "64px" });
     this.pageNumberLabel.setOrigin(0.5, 0);
     this.add(this.pageNumberLabel);
 
@@ -129,25 +156,30 @@ export class DailyRunScoreboard extends Phaser.GameObjects.Container {
   }
 
   updateRankings(rankings: RankingEntry[]) {
+    const currentLanguage = i18next.resolvedLanguage!;
+    const langSettingKey = Object.keys(languageSettings).find(lang => currentLanguage?.includes(lang))!;
+    const textSettings = languageSettings[langSettingKey];
+
     const getEntry = (rank: string, username: string, score: string, wave: string) => {
       const entryContainer = this.scene.add.container(0, 0);
 
-      const rankLabel = addTextObject(this.scene, 0, 0, rank, TextStyle.WINDOW, { fontSize: "54px" });
+      const rankLabel = addTextObject(this.scene, 0, 0, rank, TextStyle.WINDOW, { fontSize: textSettings?.labelTextSize || "54px" });
       entryContainer.add(rankLabel);
 
-      const usernameLabel = addTextObject(this.scene, 12, 0, username, TextStyle.WINDOW, { fontSize: "54px" });
+      const usernameLabel = addTextObject(this.scene, 14, 0, username, TextStyle.WINDOW, { fontSize: textSettings?.labelTextSize || "54px" });
       entryContainer.add(usernameLabel);
 
-      const scoreLabel = addTextObject(this.scene, 84, 0, score, TextStyle.WINDOW, { fontSize: "54px" });
+      const scoreLabel = addTextObject(this.scene, 84 + (textSettings?.scoreLabelTextOffset || 0), 0, score, TextStyle.WINDOW, { fontSize: textSettings?.labelTextSize || "54px" });
       entryContainer.add(scoreLabel);
 
       switch (this.category) {
         case ScoreboardCategory.DAILY:
-          const waveLabel = addTextObject(this.scene, 68, 0, wave, TextStyle.WINDOW, { fontSize: "54px" });
+          const waveLabel = addTextObject(this.scene, 67 + (textSettings?.waveLabelTextOffset || 0), 0, wave, TextStyle.WINDOW, { fontSize: textSettings?.labelTextSize || "54px" });
           entryContainer.add(waveLabel);
           break;
         case ScoreboardCategory.WEEKLY:
-          scoreLabel.x -= 16;
+          usernameLabel.x += 9;
+          scoreLabel.x -= 2;
           break;
       }
 

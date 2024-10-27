@@ -1,4 +1,5 @@
 import BattleScene from "../battle-scene";
+import { DailyRunScoreboard } from "./daily-run-scoreboard";
 import OptionSelectUiHandler from "./settings/option-select-ui-handler";
 import { Mode } from "./ui";
 import * as Utils from "../utils";
@@ -13,6 +14,7 @@ export default class TitleUiHandler extends OptionSelectUiHandler {
   private static readonly BATTLES_WON_FALLBACK: number = -99999999;
 
   private titleContainer: Phaser.GameObjects.Container;
+  private dailyRunScoreboard: DailyRunScoreboard;
   private playerCountLabel: Phaser.GameObjects.Text;
   private splashMessage: string;
   private splashMessageText: Phaser.GameObjects.Text;
@@ -39,10 +41,18 @@ export default class TitleUiHandler extends OptionSelectUiHandler {
     logo.setOrigin(0.5, 0);
     this.titleContainer.add(logo);
 
+    // Setup DailyRunScoreboard
+    this.dailyRunScoreboard = new DailyRunScoreboard(this.scene, 1, 44);
+    this.dailyRunScoreboard.setup();
+    this.titleContainer.add(this.dailyRunScoreboard);
+
     if (this.scene.eventManager.isEventActive()) {
       this.eventDisplay = new TimedEventDisplay(this.scene, 0, 0, this.scene.eventManager.activeEvent());
       this.eventDisplay.setup();
       this.titleContainer.add(this.eventDisplay);
+
+      // Hide DailyRunScoreboard if event is on progress
+      this.dailyRunScoreboard.setVisible(false);
     }
 
     this.playerCountLabel = addTextObject(
@@ -102,9 +112,17 @@ export default class TitleUiHandler extends OptionSelectUiHandler {
 
       const ui = this.getUi();
 
+      this.dailyRunScoreboard.update();
+
       if (this.scene.eventManager.isEventActive()) {
         this.eventDisplay.setWidth(this.scene.scaledCanvas.width - this.optionSelectBg.width - this.optionSelectBg.x);
         this.eventDisplay.show();
+
+        // Hide DailyRunScoreboard if event is on progress
+        this.dailyRunScoreboard.setVisible(false);
+      } else {
+        // Show DailyRunScoreboard if event is finished (prevent needing reload page)
+        this.dailyRunScoreboard.setVisible(true);
       }
 
       this.updateTitleStats();
