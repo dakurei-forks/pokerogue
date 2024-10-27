@@ -114,7 +114,7 @@ export function initVouchers() {
     const title = trainer.title ? ` (${trainer.title})` : "";
     vouchers[key] = new Voucher(
       voucherType,
-      `${i18next.t("voucher:defeatTrainer", { trainerName })} ${title}`,
+      `${i18next.t("voucher:defeatTrainer", { trainerName })}${title}`,
     );
   }
   const voucherKeys = Object.keys(vouchers);
